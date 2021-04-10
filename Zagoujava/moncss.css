@@ -22,14 +22,14 @@
 .entete_index {
   background-image: url("Images/Keriskin.jpg");
   background-size: cover;
-  position: sticky;
+ /* position: sticky;*/
   top: 0;
   z-index: 2;
 }
 .entete_fam {
   background-image: url("Images/dunes.jpg");
   background-size: cover;
-  position: sticky;
+  /*position: sticky;*/
   top: 0%;
   z-index: 2;
 }
