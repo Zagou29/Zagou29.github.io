@@ -52,12 +52,12 @@
 }
 .menumarge li {
   text-align: left;
+  padding-bottom: 3px;
 }
 .menu li a,
 .menumarge li a {
   text-decoration: none;
   color: blue;
-  
 }
 .menu a:hover,
 .menumarge a:hover {
@@ -83,9 +83,10 @@
   }
 }
 .encours a {
-  background-color: rgba(255, 251, 0, 0.411);
+  border: 1px solid blue;
   font-weight: bold;
   border-radius: 5px;
+  padding: 2px;
 
 }
 /* section milieu ----------------*/
