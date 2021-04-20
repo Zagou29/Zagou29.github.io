@@ -3,93 +3,107 @@
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-
   box-sizing: border-box;
 }
-/*ecran etroit => Menu vertical */
-.grdtitre {
-  font-size: 2em;
-  /*ecarter en haut et en bas pour le bandeau*/
-  padding-top: 20px;
-  color: gold;
-  text-align: center;
-  text-shadow: 1px 1px black;
-  /* float pour laisser le menu remonter et 10em pour centrer le titre */
-  width: 10em;
-  float: left;
+/* format du coument avec boites body,header, main, aside, footer */
+.page {
+  display: grid;
+  grid-template-columns: 15vh 1fr 15vh;
+  grid-template-rows: 150px auto 90px;
+
+  grid-template-areas:
+    "hd hd hd"
+    "sg ct sd"
+    ". pd .";
+}
+.usa {
+  background-image: url("/Zagoujava/Images/USA.jpg");
+  background-size: cover;
+}
+/* en tete avec images et nom du Blog */
+.entete {
+  grid-area: hd;
+  background-size: cover;/* pour les images d'entête */
+}
+.fam {
+  background-image: url("/Zagoujava/Panoramas/Keriskin\ jour\ long.jpg");
+}
+.famcopy {
+  background-image: url("/Zagoujava/Panoramas/Ecosse.jpg");
 }
 
-.entete_index {
-  background-image: url("Images/Keriskin.jpg");
-  background-size: cover;
- /* position: sticky;*/
-  top: 0;
-  z-index: 2;
-}
 .entete_fam {
   background-image: url("Images/dunes.jpg");
   background-size: cover;
-  /*position: sticky;*/
   top: 0%;
   z-index: 2;
 }
+.grdtitre {
+  font-size: 4em;
+  /*ecarter en haut et en bas pour le bandeau*/
+  padding-top: 10px;
+  color: gold;
+  text-align: center;
+  text-shadow: 1px 1px black;
+}
+/* boite principale */
+.central {
+  grid-area: ct;
+  margin: 10px;
+}
+/* sidebars menus */
+.sideg {
+  grid-area: sg;
+  padding: 10px;
+}
+.sided {
+  grid-area: sd;
+  padding: 10px;
+}
+/* menu principal */
+li {
+  list-style-type: none;
+}
+.menu li,
+.menumarge li {
+  margin: 10px;
+  text-align: center;
+}
+.menu li a,
+.menumarge li a {
+  text-decoration: none;
+  color: black;
+}
+.menu a:hover,
+.encours {
+  background-color: yellow;
+  border-radius: 6px;
+  padding: 2px;
+}
+
+/* menu icones */
+.icones {
+  height: 50px;
+  margin: 10px;
+  background-size: cover;
+  border-radius: 20%;
+}
+.icones:hover {
+  border: solid;
+  border-color: yellow;
+}
+.actif {
+  border: solid;
+  height: 55px;
+}
+
+/* section milieu ----------------*/
 .fond {
   background-image: url("Images/Mexique.jpg");
   background-position: top;
   background-attachment: fixed;
   background-size: cover;
 }
-
-.menu {
-  padding-bottom: 18px;
-}
-
-.menu li,
-.menumarge li {
-  padding-right: 1em;
-  list-style-type: none;
-  text-align: right;
-}
-.menumarge li {
-  text-align: left;
-  padding-bottom: 3px;
-}
-.menu li a,
-.menumarge li a {
-  text-decoration: none;
-  color: blue;
-}
-.menu a:hover,
-.menumarge a:hover {
-  /*color: black;*/
-  background-color: rgba(255, 255, 0, 0.75);
-  border-radius: 6px;
-  padding: 2px;
-}
-
-/* si Ecran Large => menu horizontal*/
-@media all and (min-width: 600px) {
-  .menu li {
-    display: inline;
-    padding-bottom: 1em;
-  }
-  .menu {
-    text-align: center;
-  }
-  .grdtitre {
-    padding-bottom: 20px;
-    float: none;
-    width: auto;
-  }
-}
-.encours a {
-  border: 1px solid blue;
-  font-weight: bold;
-  border-radius: 5px;
-  padding: 2px;
-
-}
-/* section milieu ----------------*/
 .imgronde {
   float: left;
   width: 10em;
@@ -98,7 +112,6 @@
 }
 
 .container {
-  width: 100%;
   padding: 0 20px;
 }
 .just {
@@ -106,31 +119,17 @@
 }
 .cent {
   text-align: center;
-  width: 80%;
-}
-.flexy {
-  display: flex;
-  align-content: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 20px;
-}
-.sideboite {
-  border: 1px solid blue;
-  height:20%;
+  background-color: wheat;
 }
 .Lect43 {
   width: 100%;
-  max-width: 814px;
   aspect-ratio: 4/3;
-  height: auto;
-  max-height: 615px;
+  /* max-height: 80vh; */
 }
 .Lect169 {
   width: 100%;
   aspect-ratio: 16/9;
-  height: auto;
-  /*max-height: 615px;*/
+  /* max-height: 80vh; */
 }
 
 .relat {
@@ -163,23 +162,21 @@
   border: 6px solid gray;
 }
 .pied {
-  background-color: gray;
-  border: 1px solid black;
-  width: 100%;
+  grid-area: pd;
+}
+.flexy {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
 }
 .flexy-pied {
   display: flex;
-  justify-content: space-around;
   align-content: center;
-  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
-
-.icones li {
-  display: inline;
+h2 {
+  margin: auto;
 }
-.icones img {
-  height: 50px;
-  margin: 10px;
-}
-
 /*----------------------------------*/
