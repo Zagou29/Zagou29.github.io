@@ -7,9 +7,10 @@
 }
 /* format du coument avec boites body,header, main, aside, footer */
 .page {
+  height: 100vh;
   display: grid;
   grid-template-columns: 15vh 1fr 15vh;
-  grid-template-rows: 150px auto 90px;
+  grid-template-rows: 150px auto 75px;
   grid-template-areas:
     "hd hd hd"
     "sg ct sd"
@@ -17,21 +18,21 @@
 }
 /* format de page pour la page blog */
 .pageblog {
+  height: 100vh;
   display: grid;
   grid-template-columns: 10vh auto 10vh;
-  grid-template-rows: 200px auto auto 90px;
-  grid-auto-flow: row;
+  grid-template-rows: 150px 38px auto 75px;
 
   grid-template-areas:
     "hd hd hd"
-    ". sg ."
+    "sg sg sg"
     "ct ct ct"
-    ". pd .";
+    "pd pd pd";
 }
 
 .usa {
-  background-image: url("/Zagoujava/Images/USA.jpg");
-  background-size: cover;
+  background: url("/Zagoujava/Images/USA.jpg") center/cover;
+  background-repeat: no-repeat;
 }
 .bleu {
   background-color: rgba(180, 221, 238, 0.5);
@@ -44,19 +45,18 @@
 /* en tete avec images et nom du Blog */
 .entete {
   grid-area: hd;
-  background-size: cover; /* pour les images d'entête */
 }
 .fam {
-  background-image: url("/Zagoujava/Panoramas/Keriskin\ jour\ long.jpg");
+  background: url("/Zagoujava/Panoramas/Keriskin\ jour\ long.jpg") center top;
 }
 .famcopy {
-  background-image: url("/Zagoujava/Panoramas/Ecosse.jpg");
+  background: url("/Zagoujava/Panoramas/Ecosse.jpg") center top;
 }
 .imgblog {
-  background-image: url("/Zagoujava/Panoramas/Ile\ de\ Sein.jpg");
+  background: url("/Zagoujava/Panoramas/Ile\ de\ Sein.jpg") center;
 }
 .imgac {
-  background-image: url("/Zagoujava/Panoramas/Saint\ Nazaire.jpg");
+  background: url("/Zagoujava/Panoramas/Saint\ Nazaire.jpg") center bottom;
 }
 .entete_fam {
   background-image: url("Images/dunes.jpg");
@@ -80,7 +80,7 @@
 /* sidebars menus */
 .sideg {
   grid-area: sg;
-  padding: 10px;
+  /* padding: 10px; */
 }
 .sided {
   grid-area: sd;
@@ -149,17 +149,17 @@ li {
 }
 .cent {
   text-align: center;
-  background-color: wheat;
+  /* background-color: wheat; */
 }
 .Lect43 {
-  width: 100%;
+   width:100%; 
+  max-width: 770px; 
   aspect-ratio: 4/3;
-  max-height: 80vh;
 }
 .Lect169 {
   width: 100%;
+  max-width: 1000px;
   aspect-ratio: 16/9;
-  /* max-height: 80vh; */
 }
 
 .relat {
@@ -194,13 +194,16 @@ li {
 /* pied de page */
 .pied {
   grid-area: pd;
+  align-self: end;
 }
 .flexy {
   display: flex;
-  align-content: center;
+  overflow: scroll;
+  /* align-content: center; */
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 20px;
+  margin:0;
 }
 .flexy-pied {
   display: flex;
@@ -214,10 +217,10 @@ h2 {
 
 @media screen and (max-width: 740px) {
   .page {
+    height:100vh;
     grid-template-columns: 10px auto 10px;
-    grid-template-rows: 150px auto auto auto 90px;
+    grid-template-rows: 150px auto auto auto 75px;
     grid-auto-flow: row;
-
     grid-template-areas:
       ". hd ."
       ". sg ."
@@ -225,7 +228,9 @@ h2 {
       ". ct ."
       ". pd .";
   }
-
+.Lect43{
+  max-width: 630px;
+}
   .sided {
     padding: 0;
   }
