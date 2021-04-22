@@ -206,6 +206,9 @@ li {
   grid-area: pd;
   align-self: end;
 }
+.textpd{
+  margin:auto;
+}
 .flexy {
   display: flex;
   overflow: scroll;
