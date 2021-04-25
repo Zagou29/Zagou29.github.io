@@ -10,7 +10,8 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 15vh 1fr 15vh;
-  grid-template-rows: 150px auto 75px;
+  grid-template-rows: 20vh auto 5vh;
+
   grid-template-areas:
     "hd hd hd"
     "sg ct sd"
@@ -20,14 +21,14 @@
 .pageblog {
   height: 100vh;
   display: grid;
-  grid-template-columns: 10vh auto 10vh;
-  grid-template-rows: 150px 38px auto 75px;
+  grid-template-columns: auto;
+  grid-template-rows: 20vh auto auto 6vh;
 
   grid-template-areas:
-    "hd hd hd"
-    "sg sg sg"
-    "ct ct ct"
-    "pd pd pd";
+    "hd "
+    "sg "
+    "ct "
+    "pd ";
 }
 
 .usa {
@@ -36,7 +37,6 @@
 }
 .bleu {
   background-color: rgba(180, 221, 238, 0.5);
-
 }
 .portugal {
   background-image: url("/Zagoujava/Images/Crete.jpg");
@@ -74,11 +74,11 @@
   text-align: center;
   text-shadow: 1px 1px black;
 }
-.sstitre{
-  color:lime;
+.sstitre {
+  color: lime;
   text-align: right;
   text-shadow: 1px 1px black;
-  font-size: calc(1em + 1vw);
+  font-size: calc(1em + 2vw);
   padding-right: 5vw;
 }
 /* boite principale */
@@ -99,10 +99,12 @@
 li {
   list-style-type: none;
 }
-.menu li,
+.menu li {
+  margin: 10px 2.3vw;
+}
 .menumarge li {
+  text-align: left;
   margin: 10px;
-  text-align: center;
 }
 .menu li a,
 .menumarge li a {
@@ -124,7 +126,7 @@ li {
 /* menu icones */
 .icones {
   height: 50px;
-  margin: 10px;
+  margin-right: 10px;
   background-size: cover;
   border-radius: 20%;
 }
@@ -158,15 +160,14 @@ li {
 }
 .cent {
   text-align: center;
-  
 }
 .lect43 {
-   width:100%; 
-  max-width: 770px; 
+  width: 100%;
+  max-width: 750px;
   aspect-ratio: 4 / 3;
 }
 
-.Lect169 {
+.lect169 {
   width: 100%;
   max-width: 1000px;
   aspect-ratio: 16 / 9;
@@ -206,17 +207,17 @@ li {
   grid-area: pd;
   align-self: end;
 }
-.textpd{
-  margin:auto;
+.textpd {
+  margin: auto;
 }
 .flexy {
   display: flex;
   overflow: scroll;
-  /* align-content: center; */
+
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 20px;
-  margin:0;
+  margin: 0;
 }
 .flexy-pied {
   display: flex;
@@ -228,20 +229,17 @@ li {
 
 @media screen and (max-width: 740px) {
   .page {
-    height:100vh;
-    grid-template-columns: 10px auto 10px;
-    grid-template-rows: 150px auto auto auto 75px;
+    height: 100vh;
+    grid-template-columns: auto;
+    grid-template-rows: 17vh auto auto auto 3vh;
     grid-auto-flow: row;
     grid-template-areas:
-      ". hd ."
-      ". sg ."
-      ". sd ."
-      ". ct ."
-      ". pd .";
+      " hd "
+      " sg "
+      " sd "
+      " ct "
+      " pd ";
   }
-.Lect43{
-  max-width: 630px;
-}
   .sided {
     padding: 0;
   }
@@ -256,6 +254,9 @@ li {
   }
   .menu li,
   .menumarge li {
-    display: inline ;
+    display: inline;
+  }
+  .menu a {
+    font-size: calc(3vw);
   }
 }
