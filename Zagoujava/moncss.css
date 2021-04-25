@@ -199,6 +199,10 @@ li {
 .blogs:hover {
   border: 3px solid grey;
 }
+.ti_blog:hover {
+  color:rgb(255, 174, 0);
+
+}
 .blogs:active {
   border: 6px solid gray;
 }
