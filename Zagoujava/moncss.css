@@ -42,6 +42,14 @@
   background-image: url("/Zagoujava/Images/Crete.jpg");
   background-size: cover;
 }
+.estivent{
+   background: url("/Zagoujava/Images/Estivent.jpg") center/cover;
+  background-repeat: no-repeat;
+}
+.crete{
+   background: url("/Zagoujava/Images/Crete.jpg") top/cover;
+  background-repeat: no-repeat;
+}
 
 /* en tete avec images et nom du Blog */
 .entete {
@@ -49,16 +57,19 @@
   /* text-align: center; */
 }
 .fam {
-  background: url("/Zagoujava/Panoramas/Keriskin\ jour\ long.jpg") center top;
+  background: url("/Zagoujava/Panoramas/Bateaux\ Aber.jpg") center/cover;
 }
-.famcopy {
-  background: url("/Zagoujava/Panoramas/Ecosse.jpg") center top;
+.avan {
+  background: url("/Zagoujava/Panoramas/Avant2.jpg") center/cover;
+}
+.voy{
+  background: url("/Zagoujava/Panoramas/Venise\ Soleil\ Couchant.jpg") center/cover ;
 }
 .imgblog {
-  background: url("/Zagoujava/Panoramas/Ile\ de\ Sein.jpg") center;
+  background: url("/Zagoujava/Panoramas/Ile\ de\ Sein\ 2.jpg") center/cover;
 }
 .imgac {
-  background: url("/Zagoujava/Panoramas/Saint\ Nazaire.jpg") center bottom;
+  background: url("/Zagoujava/Panoramas/Saint\ Nazaire.jpg") bottom /cover;
 }
 .entete_fam {
   background-image: url("Images/dunes.jpg");
