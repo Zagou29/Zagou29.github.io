@@ -10,7 +10,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 15vh 1fr 15vh;
-  grid-template-rows: 20vh auto 5vh;
+  grid-template-rows: 20vh auto 7vh;
 
   grid-template-areas:
     "hd hd hd"
@@ -54,13 +54,13 @@
 /* en tete avec images et nom du Blog */
 .entete {
   grid-area: hd;
-  /* text-align: center; */
+  position: relative;
 }
 .fam {
   background: url("/Zagoujava/Panoramas/Bateaux\ Aber.jpg") center/cover;
 }
 .avan {
-  background: url("/Zagoujava/Panoramas/Avant2.jpg") center/cover;
+  background: url("/Zagoujava/Panoramas/Avant2.jpg") right/cover;
 }
 .voy {
   background: url("/Zagoujava/Panoramas/Venise\ Soleil\ Couchant.jpg")
@@ -79,19 +79,27 @@
   z-index: 2;
 }
 .grdtitre {
+  position:relative;
   font-size: calc(2em + 3vw);
+
   /*ecarter en haut et en bas pour le bandeau*/
-  padding-top: 10px;
+  top: 50%;
+  transform:translateY(-50%) ;
+  padding-left: 1em;
   color: gold;
-  text-align: center;
+  text-align: left;
   text-shadow: 1px 1px black;
 }
 .sstitre {
+  position: absolute;
+  top: 100%;
+  transform:translateY(-100%);
+  right: 0;
   color: lime;
   text-align: right;
   text-shadow: 1px 1px black;
   font-size: calc(1em + 2vw);
-  padding-right: 5vw;
+ padding-right: 0.5em;
 }
 /* boite principale */
 .central {
@@ -174,7 +182,7 @@ li {
   text-align: center;
 }
 .lect43 {
-  width: 100%;
+  width: 95%;
   max-width: 750px;
   aspect-ratio: 4 / 3;
 }
@@ -241,8 +249,8 @@ li {
   .page {
     height: 100vh;
     grid-template-columns: auto;
-    grid-template-rows: 17vh auto auto auto 3vh;
-    grid-auto-flow: row;
+    grid-template-rows: 17vh 7vh 5vh auto 7vh;
+    /* align-items:stretch; */
     grid-template-areas:
       " hd "
       " sg "
