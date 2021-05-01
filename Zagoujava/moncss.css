@@ -15,15 +15,14 @@
   grid-template-areas:
     "hd hd hd"
     "sg ct sd"
-    ". pd .";
+    "pd pd pd";
 }
 /* format de page pour la page blog */
 .pageblog {
   height: 100vh;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 20vh auto auto 6vh;
-
+  grid-template-rows: 20vh auto auto 7vh;
   grid-template-areas:
     "hd "
     "sg "
@@ -32,7 +31,7 @@
 }
 
 .usa {
-  background: url("/Zagoujava/Images/USA.jpg") center/cover;
+  background: url("/Zagoujava/Images/USA.jpg") left/cover;
   background-repeat: no-repeat;
 }
 .bleu {
@@ -72,19 +71,13 @@
 .imgac {
   background: url("/Zagoujava/Panoramas/Saint\ Nazaire.jpg") bottom / cover;
 }
-.entete_fam {
-  background-image: url("Images/dunes.jpg");
-  background-size: cover;
-  top: 0%;
-  z-index: 2;
-}
 .grdtitre {
-  position:relative;
+  position: relative;
   font-size: calc(2em + 3vw);
 
   /*ecarter en haut et en bas pour le bandeau*/
   top: 50%;
-  transform:translateY(-50%) ;
+  transform: translateY(-50%);
   padding-left: 1em;
   color: gold;
   text-align: left;
@@ -93,18 +86,25 @@
 .sstitre {
   position: absolute;
   top: 100%;
-  transform:translateY(-100%);
+  transform: translateY(-100%);
   right: 0;
   color: lime;
   text-align: right;
   text-shadow: 1px 1px black;
   font-size: calc(1em + 2vw);
- padding-right: 0.5em;
+  padding-right: 0.5em;
 }
 /* boite principale */
 .central {
   grid-area: ct;
   margin: 10px;
+  /* position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  max-height:100%;
+  margin:10px; */
 }
 /* sidebars menus */
 .sideg {
@@ -133,8 +133,9 @@ li {
 }
 .menu a:hover,
 .encours {
-  background-color: yellow;
+  background-color: gold;
   border-radius: 6px;
+  box-shadow: 1px 1px 1px black;
   padding: 2px;
 }
 .aplat {
@@ -155,16 +156,11 @@ li {
   border-color: yellow;
 }
 .actif {
-  border: solid;
+  box-shadow: 5px 5px 5px black;
 }
 
 /* section milieu ----------------*/
-.fond {
-  background-image: url("Images/Mexique.jpg");
-  background-position: top;
-  background-attachment: fixed;
-  background-size: cover;
-}
+
 .imgronde {
   float: left;
   width: 10em;
@@ -178,21 +174,24 @@ li {
 .just {
   text-align: justify;
 }
-.cent {
-  text-align: center;
-}
+
 .lect43 {
-  width: 95%;
-  max-width: 750px;
+  display: block;
+  height: 100%;
+  margin: auto;
+  max-width: 98vw;
   aspect-ratio: 4 / 3;
 }
-
 .lect169 {
+  display: block;
   width: 100%;
-  max-width: 1000px;
+  margin: auto;
+  max-width: 125vh;
   aspect-ratio: 16 / 9;
+  /* position: relative;
+   left: 50%;
+  transform: translateX(-50%); */
 }
-
 .relat {
   position: relative;
 }
@@ -223,24 +222,25 @@ li {
 /* pied de page */
 .pied {
   grid-area: pd;
-  align-self: end;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.347);
+}
+.pied ul li {
+  padding-top: 2px;
 }
 .textpd {
-  margin: auto;
+  width: 100%;
+  text-align: center;
 }
 .flexy {
   display: flex;
   overflow: scroll;
-
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 20px;
   margin: 0;
-}
-.flexy-pied {
-  display: flex;
-  align-content: center;
-  justify-content: space-evenly;
 }
 
 /*----------------------------------*/
@@ -250,7 +250,6 @@ li {
     height: 100vh;
     grid-template-columns: auto;
     grid-template-rows: 17vh 7vh 5vh auto 7vh;
-    /* align-items:stretch; */
     grid-template-areas:
       " hd "
       " sg "
@@ -267,14 +266,14 @@ li {
   }
   .icones {
     height: 30px;
-    margin-top: 0;
-    margin-bottom: 0;
+    /* margin-top: 0; */
+    /* margin-bottom: 0; */
   }
   .menu li,
   .menumarge li {
     display: inline;
   }
   .menu a {
-    font-size: calc(3vw);
+    font-size: 3vw;
   }
 }
