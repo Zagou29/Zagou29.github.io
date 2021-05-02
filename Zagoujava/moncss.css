@@ -130,7 +130,7 @@ li {
 .menumarge li a {
   text-decoration: none;
   color: black;
-  display:inline-block;
+  display: inline-block;
 }
 .menu a:hover,
 .encours {
@@ -180,7 +180,7 @@ li {
   display: block;
   height: 100%;
   margin: auto;
-  max-width: 70vw;
+  max-width: 100%;
   aspect-ratio: 4 / 3;
 }
 .lect169 {
@@ -189,9 +189,6 @@ li {
   margin: auto;
   max-width: 125vh;
   aspect-ratio: 16 / 9;
-  /* position: relative;
-   left: 50%;
-  transform: translateX(-50%); */
 }
 .relat {
   position: relative;
@@ -243,9 +240,6 @@ li {
   padding: 20px;
   margin: 0;
 }
-.lect43{
-  max-width: 100%;
-}
 
 /*----------------------------------*/
 
@@ -261,8 +255,8 @@ li {
       " ct "
       " pd ";
   }
-  .central{
-    margin:0 10px;
+  .central {
+    margin: 0 10px;
   }
   .sided {
     padding: 0;
@@ -283,4 +277,5 @@ li {
   .menu a {
     font-size: 3vw;
   }
+
 }
