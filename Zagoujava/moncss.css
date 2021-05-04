@@ -11,24 +11,29 @@
   display: grid;
   grid-template-columns: 15vw 1fr 15vw;
   grid-template-rows: 20vh auto 7vh;
-
   grid-template-areas:
     "hd hd hd"
     "sg ct sd"
     "pd pd pd";
 }
-.format {
+.pagetxt {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 20vh 7vh 1fr 1fr 7vh;
   grid-template-areas:
-    "hd hd hd"
-    "sg ct sd"
-    ". pd .";
+    "hd hd"
+    "sg sg"
+    "bc sd"
+    "ct sd"
+    "pd pd";
 }
 /* format de page pour la page blog */
 .pageblog {
   height: 100vh;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 20vh auto auto 7vh;
+  grid-template-rows: 20vh 7vh auto 7vh;
   grid-template-areas:
     "hd "
     "sg "
@@ -44,7 +49,7 @@
   background-color: rgba(180, 221, 238, 0.5);
 }
 .imindex {
-  background: url("/Zagoujava/Images/FamilleZag.jpg") bottom / cover;
+  background: url("/") bottom / cover;
   background-repeat: no-repeat;
 }
 .estivent {
@@ -75,7 +80,10 @@
   background: url("/Zagoujava/Panoramas/Ile\ de\ Sein\ 2.jpg") center/cover;
 }
 .imgac {
-  background: url("/Zagoujava/Panoramas/Saint\ Nazaire.jpg") bottom / cover;
+  background: url("/Zagoujava/Panoramas/Keriskin.jpg") left / cover;
+}
+.imgam {
+  background: url("/Zagoujava/Panoramas/Ecosse.jpg") left / cover;
 }
 .grdtitre {
   position: relative;
@@ -101,25 +109,33 @@
   padding-right: 0.5em;
 }
 /* boite principale */
+.bloc {
+  grid-area: bc;
+  background-color: wheat;
+}
 .central {
   grid-area: ct;
-  margin: 10px 0;
+  margin: 5px 0;
+  
 }
 /* boite pour regler la largeur */
 /* la largeur calculée depasse tres souvent la largeur de l'ecran. cest la max with qui le ramene à la largeur de la boite central */
 .larg169 {
   position: relative;
-  width: calc(73vh * 16 / 9);
-  max-width: 70vw;
-  margin: auto;
-}
-.larg43 {
-  position: relative;
-  width: calc(73vh * 4 / 3);
+  width: calc(71vh * 16 / 9);
   max-width: 70vw;
   margin: auto;
 }
 
+.larg43 {
+  position: relative;
+  width: calc(71vh * 4 / 3);
+  max-width: 70vw;
+  margin: auto;
+}
+.largsd {
+  max-width: 45vw;
+}
 .l169 {
   position: relative;
   padding-bottom: 56.25%;
@@ -131,14 +147,14 @@
 /* sidebars menus */
 .sideg {
   grid-area: sg;
-  padding: 10px;
 }
 .sided {
   grid-area: sd;
+}
+.pad10{
   padding: 10px;
 }
-.fondr {
-  border: 1px solid gray;
+.fongu {
   background-color: rgb(128, 128, 128, 0.5);
 }
 /* menu principal */
@@ -173,9 +189,8 @@ li {
 }
 /* menu icones */
 .icones {
-  height: 50px;
+  height: 5vh;
   margin-right: 10px;
-  /* background-size: cover; */
   border-radius: 20%;
 }
 .icones:hover {
@@ -194,15 +209,19 @@ li {
   border-radius: 50%;
   margin: 1rem;
 }
-.misenp {
+
+.justscroll {
   text-align: justify;
-  padding: 10px;
+  background-color: blanchedalmond;
+  border:2px solid white;
+  overflow: auto;
+  margin: 0;/* pour supprimer la bande blanche entre blog et central des pages amis et Index */
 }
-.container {
-  padding: 0 20px;
+.justscroll p{
+  padding: 1vh 3vw;
 }
-.just {
-  text-align: justify;
+.justscroll h2{
+  text-align: center;
 }
 /* adaptation du lecteur youtube */
 .lect {
@@ -216,7 +235,7 @@ li {
 }
 .blogs {
   width: 220px;
-  height:220px;
+  height: 220px;
   margin: 1em 2em;
   border-radius: 25%;
   box-shadow: 10px 5px 5px gray;
@@ -243,16 +262,21 @@ li {
   width: 100%;
   grid-area: pd;
   display: flex;
-  justify-content: space-between;
+  justify-content:flex-end;
   align-items: center;
-  background-color: rgb(128, 128, 128, 0.5);
+  flex-direction: row;
+  background-color: rgb(0, 0, 0, 0.1);
+}
+.textpd{
+  width:90%;
+  text-align: left;
 }
 .pied ul li {
   padding-top: 2px;
 }
-.textpd {
-  width: 100%;
-  text-align: center;
+.cop{
+  width: 5em;
+  color: grey;
 }
 .flexy {
   display: flex;
@@ -269,7 +293,7 @@ li {
   .page {
     height: 100vh;
     grid-template-columns: auto;
-    grid-template-rows: 17vh 7vh 5vh auto 7vh;
+    grid-template-rows: 17vh 7vh 7vh auto 7vh;
     grid-template-areas:
       " hd"
       " sg"
@@ -277,16 +301,19 @@ li {
       " ct "
       " pd";
   }
-.central{
-  margin:0;
-}
+  .central {
+    margin: 0;
+  }
   .larg43 {
     max-width: 95vw;
-    width: calc(64vh * 4 / 3);
+    width: calc(62vh * 4 / 3);
   }
   .larg169 {
     max-width: 95vw;
-    width: calc(64vh * 16 / 9);
+    width: calc(62vh * 16 / 9);
+  }
+  .largsd {
+    max-width: 45vw;
   }
   .sided {
     padding: 0;
@@ -295,9 +322,7 @@ li {
   .menumarge {
     text-align: center;
   }
-  .icones {
-    height: 30px;
-  }
+
   .menu li,
   .menumarge li {
     display: inline;
