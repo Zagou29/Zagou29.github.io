@@ -194,13 +194,14 @@ li {
 /* menu icones */
 .icones {
   height: 5vh;
-  margin-right: 10px;
   border-radius: 20%;
+  margin-right: 10px;
 }
 .icones:hover {
   border: solid;
   border-color: yellow;
 }
+/* identifier l'icone en cours */
 .actif {
   box-shadow: 5px 5px 5px black;
 }
@@ -213,7 +214,7 @@ li {
   border-radius: 50%;
   margin: 1rem;
 }
-
+/* fond des textes */
 .justscroll {
   text-align: justify;
   background-color: blanchedalmond;
@@ -221,9 +222,11 @@ li {
   overflow: auto;
   margin: 0; /* pour supprimer la bande blanche entre blog et central des pages amis et Index */
 }
+/* decaler les textes des paragraphes /cadre */
 .justscroll p {
   padding: 1vh 3vw;
 }
+/* centrage des titres */
 .justscroll h2 {
   text-align: center;
 }
@@ -274,28 +277,33 @@ li {
 .textpd {
   width: 100%;
   text-align: left;
-  /* font-size: calc(0.4em + 1vw); */
-
   padding: 0 10px;
   color: rgb(207, 198, 198);
 }
+/* caler les deux icones en ligne */
 .pied > div {
   width: 100%;
 }
-.pied ul li {
-  padding-top: 2px;
+.pied > ul{
+  width: 20vh;
 }
+.pied li {
+  padding-top: 2px;
+  display: inline;
+}
+/* copyright calé à droite */
 .cop {
   width: 5em;
   color: rgb(207, 198, 198);
 }
+/* centre flexible pour les icones des blogs */
 .flexy {
   display: flex;
-  overflow: scroll;
   justify-content: center;
   flex-wrap: wrap;
   padding: 20px;
   margin: 0;
+  overflow: scroll;
 }
 
 /*----------------------------------*/
@@ -337,6 +345,9 @@ li {
   }
   .menu a {
     font-size: 3vw;
+  }
+  .icones {
+    padding-top: 2px;
   }
   .textpd {
     font-size: calc(0.4em + 1vw);
