@@ -10,7 +10,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 15vw 1fr 15vw;
-  grid-template-rows: 20vh auto 7vh;
+  grid-template-rows: 17vh auto 7vh;
   grid-template-areas:
     "hd hd hd"
     "sg ct sd"
@@ -19,13 +19,13 @@
 .pagetxt {
   display: grid;
   height: 100vh;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 20vh 7vh 1fr 1fr 7vh;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: 17vh 5vh 1fr 4fr 7vh;
   grid-template-areas:
     "hd hd"
     "sg sg"
-    "bc sd"
     "ct sd"
+    "bc sd"
     "pd pd";
 }
 /* format de page pour la page blog */
@@ -33,7 +33,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 20vh 7vh auto 7vh;
+  grid-template-rows: 17vh 5vh auto 7vh;
   grid-template-areas:
     "hd "
     "sg "
@@ -48,10 +48,6 @@
 .bleu {
   background-color: rgba(180, 221, 238, 0.5);
 }
-.imindex {
-  background: url("/") bottom / cover;
-  background-repeat: no-repeat;
-}
 .imfamily {
   background: url("/Zagoujava/Images/Estivent.jpg") center/cover;
   background-repeat: no-repeat;
@@ -59,6 +55,11 @@
 .imavant {
   background: url("/Zagoujava/Images/Laber.jpg") bottom/cover;
   background-repeat: no-repeat;
+}
+.imamis {
+  /* background: url("/Zagoujava/Images/Grece.jpg") top/cover;
+  background-repeat: no-repeat; */
+  background-color: cornsilk;
 }
 
 /* en tete avec images panoramas et nom du Blog */
@@ -111,7 +112,9 @@
 /* boite de gauche dans les pages text */
 .bloc {
   grid-area: bc;
-  background-color: wheat;
+}
+.polsize {
+  font-size: 0.8em;
 }
 /* boite principale */
 .central {
@@ -122,21 +125,21 @@
 /* la largeur calculée depasse tres souvent la largeur de l'ecran. c'est la max with qui le ramene à la largeur de la boite central */
 .larg169 {
   position: relative;
-  width: calc(71vh * 16 / 9);
+  width: calc(76vh * 16 / 9);
   max-width: 70vw;
   margin: auto;
 }
 
 .larg43 {
   position: relative;
-  width: calc(71vh * 4 / 3);
+  width: calc(76vh * 4 / 3);
   max-width: 70vw;
   margin: auto;
 }
 /* container pour les videos du sideD */
 .largsd {
   position: relative;
-  max-width: 45vw;
+  max-width: 89%;
   margin: auto;
 }
 /* container pour les iframe de 16/9 ou 4/3 */
@@ -148,25 +151,33 @@
   position: relative;
   padding-bottom: 75%;
 }
+.l128 {
+  position: relative;
+  padding-bottom: 80%;
+}
 /* sidebars menus */
 .sideg {
   grid-area: sg;
+  /* centrer le menu vertical */
+  padding: 0 2vw;
+}
+.centvert {
+  /* flex pour centrer verticalement le menu horizontal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .sided {
   grid-area: sd;
 }
-.pad10 {
-  padding: 10px;
-}
-.fongu {
-  background-color: rgb(128, 128, 128, 0.5);
-}
+
 /* menu principal */
 li {
   list-style-type: none;
 }
+
 .menu li {
-  margin: 10px 1.3vw;
+  margin: 1.3vh 1.3vw;
 }
 .menumarge li {
   text-align: center;
@@ -214,13 +225,17 @@ li {
   border-radius: 50%;
   margin: 1rem;
 }
-/* fond des textes */
+/* polsize des textes */
 .justscroll {
   text-align: justify;
-  background-color: blanchedalmond;
-  border: 2px solid white;
+  /* background-color: blanchedalmond; */
+  border: 2px solid rgba(128, 128, 128, 0.3);
+  cursor: pointer;
   overflow: auto;
   margin: 0; /* pour supprimer la bande blanche entre blog et central des pages amis et Index */
+}
+.padbas {
+  margin-bottom: 5px;
 }
 /* decaler les textes des paragraphes /cadre */
 .justscroll p {
@@ -281,11 +296,11 @@ li {
   color: rgb(207, 198, 198);
 }
 /* caler les deux icones en ligne */
-.pied > div {
+.pied div {
   width: 100%;
 }
-.pied > ul{
-  width: 20vh;
+.pied ul {
+  width: 22vh;
 }
 .pied li {
   padding-top: 2px;
@@ -312,7 +327,7 @@ li {
   .page {
     height: 100vh;
     grid-template-columns: auto;
-    grid-template-rows: 17vh 7vh 7vh auto 7vh;
+    grid-template-rows: 17vh 5vh 7vh auto 7vh;
     grid-template-areas:
       " hd"
       " sg"
@@ -320,16 +335,22 @@ li {
       " ct "
       " pd";
   }
+  .centvrt {
+    /* flex pour centrer verticalement le menu horizontal des pages non text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .central {
     margin: 0;
   }
   .larg43 {
     max-width: 95vw;
-    width: calc(62vh * 4 / 3);
+    width: calc(63vh * 4 / 3);
   }
   .larg169 {
     max-width: 95vw;
-    width: calc(62vh * 16 / 9);
+    width: calc(63vh * 16 / 9);
   }
   .sided {
     padding: 0;
@@ -342,9 +363,6 @@ li {
   .menu li,
   .menumarge li {
     display: inline;
-  }
-  .menu a {
-    font-size: 3vw;
   }
   .icones {
     padding-top: 2px;
