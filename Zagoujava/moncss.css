@@ -65,7 +65,8 @@
 /* en tete avec images panoramas et nom du Blog */
 .entete {
   grid-area: hd;
-  position: relative;
+  position:relative;
+
 }
 .fam {
   background: url("/Zagoujava/Panoramas/Bateaux\ Aber.jpg") center/cover;
@@ -334,6 +335,19 @@ li {
       " sd"
       " ct "
       " pd";
+  }
+  .pagetxt {
+  
+    height: auto;
+    grid-template-columns: auto;
+    grid-template-rows: 17vh 5vh auto auto auto 7vh;
+    grid-template-areas:
+      "hd hd"
+      "sg sg"
+      "sd sd"
+      "ct ct"
+      "bc bc"
+      "pd pd";
   }
   .centvrt {
     /* flex pour centrer verticalement le menu horizontal des pages non text */
