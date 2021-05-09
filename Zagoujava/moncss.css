@@ -65,8 +65,7 @@
 /* en tete avec images panoramas et nom du Blog */
 .entete {
   grid-area: hd;
-  position:relative;
-
+  position: relative;
 }
 .fam {
   background: url("/Zagoujava/Panoramas/Bateaux\ Aber.jpg") center/cover;
@@ -231,9 +230,11 @@ li {
   text-align: justify;
   /* background-color: blanchedalmond; */
   border: 2px solid rgba(128, 128, 128, 0.3);
-  cursor: pointer;
   overflow: auto;
   margin: 0; /* pour supprimer la bande blanche entre blog et central des pages amis et Index */
+}
+.grab {
+  cursor: grab;
 }
 .padbas {
   margin-bottom: 5px;
@@ -337,7 +338,6 @@ li {
       " pd";
   }
   .pagetxt {
-  
     height: auto;
     grid-template-columns: auto;
     grid-template-rows: 17vh 5vh auto auto auto 7vh;
