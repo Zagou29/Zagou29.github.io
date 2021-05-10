@@ -228,7 +228,6 @@ li {
 .icones {
   height: 5vh;
   max-height: 5vw;
-  padding-top: 2px;
   border-radius: 20%;
 }
 .margr {
@@ -405,7 +404,7 @@ li {
     max-width: 95vw;
     width: calc(63vh * 16 / 9);
   }
-  
+
   .menu,
   .menumarge {
     text-align: center;
