@@ -28,7 +28,7 @@
     "sg sg"
     "ct sd"
     "bc sd"
-    "pd pd";
+    "pd sd";
 }
 .pageind {
   display: grid;
@@ -67,8 +67,8 @@
 .marron {
   background-color: rgba(243, 160, 100, 0.582);
 }
-.gris{
-   background-color: rgba(187, 186, 186, 0.7);
+.gris {
+  background-color: rgba(187, 186, 186, 0.7);
 }
 .imfamily {
   background: url("/Zagoujava/Images/Estivent.jpg") center/cover;
@@ -227,7 +227,11 @@ li {
 /* menu icones */
 .icones {
   height: 5vh;
+  max-height: 5vw;
+  padding-top: 2px;
   border-radius: 20%;
+}
+.margr {
   margin-right: 10px;
 }
 .icones:hover {
@@ -240,8 +244,8 @@ li {
 }
 
 /* section milieu ----------------*/
-.image{
-width: 100%;
+.image {
+  width: 100%;
 }
 .imgronde {
   float: left;
@@ -253,7 +257,7 @@ width: 100%;
 .justscroll {
   text-align: justify;
   /* background-color: blanchedalmond; */
-  border:2px solid rgba(248, 231, 165, 0.829);
+  border: 2px solid rgba(248, 231, 165, 0.829);
 
   overflow: auto;
   margin: 0; /* pour supprimer la bande blanche entre blog et central des pages amis et Index */
@@ -311,7 +315,7 @@ width: 100%;
 }
 /* pied de page */
 .pied {
-  width: 100%;
+  width: auto;
   grid-area: pd;
   display: flex;
   justify-content: flex-end;
@@ -321,14 +325,13 @@ width: 100%;
 .textpd {
   width: 100%;
   text-align: left;
-  padding: 0 10px;
+  padding-left: 10px;
+  font-size: calc(0.4em + 1vw);
 }
 /* caler les deux icones en ligne */
-.pied div {
-  width: 100%;
-}
+
 .pied ul {
-  width: 22vh;
+  width: 20vw;
 }
 .pied li {
   padding-top: 2px;
@@ -402,22 +405,13 @@ width: 100%;
     max-width: 95vw;
     width: calc(63vh * 16 / 9);
   }
-  .sided {
-    padding: 0;
-  }
+  
   .menu,
   .menumarge {
     text-align: center;
   }
-
   .menu li,
   .menumarge li {
     display: inline;
-  }
-  .icones {
-    padding-top: 2px;
-  }
-  .textpd {
-    font-size: calc(0.4em + 1vw);
   }
 }
