@@ -55,7 +55,7 @@
 }
 /* fonds de pages */
 .imvoy {
-  background: url("/Zagoujava/Images/USA.jpg") left /cover;
+  background: url("/Zagoujava/Images/USA.jpg") left bottom/cover;
   background-repeat: no-repeat;
 }
 .bleu {
@@ -292,7 +292,6 @@ li {
   height: 220px;
   margin: 1em 2em;
   border-radius: 25%;
-  box-shadow: 10px 5px 5px gray;
   cursor: pointer;
 }
 .ti_blog {
@@ -307,7 +306,7 @@ li {
   text-shadow: 1px 1px 2px black;
 }
 .blogs:hover {
-  border: 3px solid grey;
+  box-shadow: 10px 5px 5px gray;
 }
 .ti_blog:hover {
   color: rgb(255, 174, 0);
