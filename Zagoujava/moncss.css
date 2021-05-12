@@ -55,7 +55,7 @@
 }
 /* fonds de pages */
 .imvoy {
-  background: url("/Zagoujava/Images/USA.jpg") left/cover;
+  background: url("/Zagoujava/Images/USA.jpg") left bottom/cover;
   background-repeat: no-repeat;
 }
 .bleu {
