@@ -22,25 +22,15 @@
   display: grid;
   height: 100vh;
   grid-template-columns: 2fr 3fr;
-  grid-template-rows: 17vh 5vh 1fr 4fr 7vh;
-  grid-template-areas:
-    "hd hd"
-    "sg sg"
-    "ct sd"
-    "bc sd"
-    "pd sd";
-}
-.pageind {
-  display: grid;
-  height: 100vh;
-  grid-template-columns: 2fr 5fr;
-  grid-template-rows: 17vh 5vh 1fr 7vh;
+  grid-template-rows: 17vh 5vh auto 7vh;
   grid-template-areas:
     "hd hd"
     "sg sg"
     "ct sd"
     "pd sd";
 }
+
+
 /* format de page pour la page blog */
 .pageblog {
   height: 100vh;
@@ -229,9 +219,9 @@ li {
   height: 5vh;
   max-height: 5vw;
   border-radius: 20%;
-/* background-color: rgba(255, 255, 255, 0.623); */
+  /* background-color: rgba(255, 255, 255, 0.623); */
 }
-.fdicone{
+.fdicone {
   background-color: whitesmoke;
 }
 .margr {
@@ -367,34 +357,30 @@ li {
       " ct "
       " pd";
   }
+/* le menu Sideg sort du flux et reste fixé en haut */
   .pagetxt {
     height: auto;
     grid-template-columns: auto;
-    grid-template-rows: 17vh 5vh auto auto auto 7vh;
+    grid-template-rows: 17vh  auto auto 7vh;
     grid-template-areas:
-      "hd hd"
-      "sg sg"
-      "ct ct"
-      "bc bc"
-      "sd sd"
-      "pd pd";
+      "hd "
+      "ct"
+      "sd"
+      "pd";
   }
-  .pageind {
-    height: auto;
-    grid-template-columns: auto;
-    grid-template-rows: 17vh 5vh auto auto 7vh;
-    grid-template-areas:
-      "hd hd"
-      "sg sg"
-      "ct ct"
-      "sd sd"
-      "pd pd";
-  }
+
+
   .centvrt {
     /* flex pour centrer verticalement le menu horizontal des pages non text */
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  /* fixer le menu des pages textes en mode etroit deroulant */
+  .fixmenu{
+    position:fixed;
+    width:100%;
+    z-index: 1000;
   }
   .central {
     margin: 0;
