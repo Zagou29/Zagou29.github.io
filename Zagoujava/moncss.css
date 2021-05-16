@@ -30,7 +30,6 @@
     "pd sd";
 }
 
-
 /* format de page pour la page blog */
 .pageblog {
   height: 100vh;
@@ -357,18 +356,17 @@ li {
       " ct "
       " pd";
   }
-/* le menu Sideg sort du flux et reste fixé en haut */
+  /* le menu Sideg sort du flux et reste fixé en haut */
   .pagetxt {
     height: auto;
     grid-template-columns: auto;
-    grid-template-rows: 17vh  auto auto 7vh;
+    grid-template-rows: 17vh auto auto 7vh;
     grid-template-areas:
       "hd "
       "ct"
       "sd"
       "pd";
   }
-
 
   .centvrt {
     /* flex pour centrer verticalement le menu horizontal des pages non text */
@@ -377,9 +375,9 @@ li {
     align-items: center;
   }
   /* fixer le menu des pages textes en mode etroit deroulant */
-  .fixmenu{
-    position:fixed;
-    width:100%;
+  .fixmenu {
+    position: fixed;
+    width: 100%;
     z-index: 1000;
   }
   .central {
