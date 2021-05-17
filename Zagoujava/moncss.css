@@ -49,9 +49,12 @@
 }
 .bleu {
   background-color: rgba(180, 221, 238, 0.5);
+   box-shadow: 0 2px 10px gray;
 }
 .jaune {
   background-color: rgba(248, 231, 165, 0.829);
+  box-shadow: 0 2px 10px gray;
+  z-index: 10;
 }
 .marron {
   background-color: rgba(243, 160, 100, 0.582);
@@ -218,7 +221,6 @@ li {
   height: 5vh;
   max-height: 5vw;
   border-radius: 20%;
-  /* background-color: rgba(255, 255, 255, 0.623); */
 }
 .fdicone {
   background-color: whitesmoke;
@@ -379,7 +381,7 @@ li {
     position: fixed;
     width: 100%;
     z-index: 1000;
-    box-shadow:  0 2px 10px  gray;
+    box-shadow: 0 2px 10px gray;
   }
   .central {
     margin: 0;
