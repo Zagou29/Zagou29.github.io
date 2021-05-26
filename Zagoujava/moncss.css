@@ -46,7 +46,11 @@
 }
 /* fonds de pages */
 .imvoy {
-  background: url("/Zagoujava/Images/USA.jpg") left bottom/cover;
+  background: url("/Zagoujava/Images/USA.jpg") left center/cover;
+  background-repeat: no-repeat;
+}
+.grece {
+  background: url("/Zagoujava/Images/Grece.jpg") center/cover;
   background-repeat: no-repeat;
 }
 .bleu {
@@ -65,11 +69,19 @@
   background-color: rgba(187, 186, 186, 0.7);
 }
 .imfamily {
-  background: url("/Zagoujava/Images/Estivent.jpg") center/cover;
+  background: url("/Zagoujava/Images/Mimosa.jpg") center/cover;
+  background-repeat: no-repeat;
+}
+.imfamily2 {
+  background: url("/Zagoujava/Images/Mimosa2.jpg") center/cover;
   background-repeat: no-repeat;
 }
 .imavant {
   background: url("/Zagoujava/Images/Laber.jpg") bottom/cover;
+  background-repeat: no-repeat;
+}
+.imavant2 {
+  background: url("/Zagoujava/Images/LesAnges.jpg") right top/cover;
   background-repeat: no-repeat;
 }
 .imamis {
@@ -91,7 +103,7 @@
 }
 .voy {
   background: url("/Zagoujava/Panoramas/Venise\ Soleil\ Couchant.jpg")
-    center/cover;
+  center/cover;
 }
 .imgblog {
   background: url("/Zagoujava/Panoramas/Ile\ de\ Sein\ 2.jpg") center/cover;
@@ -150,7 +162,7 @@
 /* container pour les videos du sideD */
 .largsd {
   position: relative;
-  max-width:89%;
+  max-width: 89%;
   margin: auto;
 }
 /* container pour les iframe de 16/9 ou 4/3 */
@@ -202,7 +214,11 @@ li {
   font-size: 20px;
   display: inline-block;
 }
-.menu a:hover,
+.blanc li a{
+  color:white;
+}
+
+.menu a:hover,Whit
 .encours {
   background-color: gold;
   border-radius: 6px;
@@ -228,9 +244,10 @@ li {
   margin-right: 10px;
 }
 .icones:hover {
-  border: solid;
-  border-color: yellow;
+  background-color: yellow;
+  box-shadow: 5px 5px 5px black;
 }
+
 /* identifier l'icone en cours */
 .actif {
   box-shadow: 5px 5px 5px black;
@@ -392,6 +409,7 @@ li {
   .menu,
   .menumarge {
     text-align: center;
+  
   }
   .menu li,
   .menumarge li {
