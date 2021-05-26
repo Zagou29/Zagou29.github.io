@@ -8,3 +8,6 @@ bascule.addEventListener("mousedown", () => {
 bascule.addEventListener("mouseup", () => {
   fantom.style.display="block"
 });
+bascule.addEventListener("touchstart", () => {
+  fantom.style.display = "none";
+});
