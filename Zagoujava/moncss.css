@@ -8,6 +8,8 @@
 
   font-size: 18px;
   box-sizing: border-box;
+  --hautBox:76vh;
+  --hautBoxSmart:63vh
 }
 /* format du coument avec boites body,header, main, aside, footer */
 .page {
@@ -20,16 +22,27 @@
     "sg ct sd"
     "pd pd pd";
 }
-.pagetxt {
+.pageacc{
   display: grid;
   height: 100vh;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 20vw 80vw;
   grid-template-rows: 17vh 5vh auto 7vh;
   grid-template-areas:
     "hd hd"
     "sg sg"
     "ct sd"
     "pd sd";
+}
+.pagetxt {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 17vh 5vh auto 7vh;
+  grid-template-areas:
+    "hd hd"
+    "sg sg"
+    "ct sd"
+    "pd pd";
 }
 
 /* format de page pour la page blog */
@@ -148,21 +161,21 @@
 /* la largeur calculée depasse tres souvent la largeur de l'ecran. c'est la max with qui le ramene à la largeur de la boite central */
 .larg169 {
   position: relative;
-  width: calc(76vh * 16 / 9);
+  width: calc(var(--hautBox) * 16 / 9);
   max-width: 70vw;
   margin: auto;
 }
 
 .larg43 {
   position: relative;
-  width: calc(76vh * 4 / 3);
+  width: calc(var(--hautBox) * 4 / 3);
   max-width: 70vw;
   margin: auto;
 }
 /* container pour les videos du sideD */
 .largsd {
   position: relative;
-  max-width: 89%;
+  width: 89%;
   margin: auto;
 }
 /* container pour les iframe de 16/9 ou 4/3 */
@@ -176,7 +189,8 @@
 }
 .l128 {
   position: relative;
-  padding-bottom: 80%;
+  padding-bottom: 75%;
+
 }
 /* sidebars menus */
 .sideg {
@@ -370,7 +384,7 @@ li {
       " pd";
   }
   /* le menu Sideg sort du flux et reste fixé en haut */
-  .pagetxt {
+  .pagetxt, .pageacc{
     height: auto;
     grid-template-columns: auto;
     grid-template-rows: 17vh auto auto 7vh;
@@ -399,11 +413,11 @@ li {
   }
   .larg43 {
     max-width: 95vw;
-    width: calc(63vh * 4 / 3);
+    width: calc(var(--hautBoxSmart) * 4 / 3);
   }
   .larg169 {
     max-width: 95vw;
-    width: calc(63vh * 16 / 9);
+    width: calc(var(--hautBoxSmart) * 16 / 9);
   }
 
   .menu,
