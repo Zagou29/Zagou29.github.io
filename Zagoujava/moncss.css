@@ -8,8 +8,8 @@
 
   font-size: 18px;
   box-sizing: border-box;
-  --hautBox:76vh;
-  --hautBoxSmart:63vh
+  --hautBox: 76vh;
+  --hautBoxSmart: 63vh;
 }
 /* format du coument avec boites body,header, main, aside, footer */
 .page {
@@ -22,7 +22,7 @@
     "sg ct sd"
     "pd pd pd";
 }
-.pageacc{
+.pageacc {
   display: grid;
   height: 100vh;
   grid-template-columns: 20vw 80vw;
@@ -116,7 +116,7 @@
 }
 .voy {
   background: url("/Zagoujava/Panoramas/Venise\ Soleil\ Couchant.jpg")
-  center/cover;
+    center/cover;
 }
 .imgblog {
   background: url("/Zagoujava/Panoramas/Ile\ de\ Sein\ 2.jpg") center/cover;
@@ -190,7 +190,6 @@
 .l128 {
   position: relative;
   padding-bottom: 75%;
-
 }
 /* sidebars menus */
 .sideg {
@@ -228,11 +227,11 @@ li {
   font-size: 20px;
   display: inline-block;
 }
-.blanc li a{
-  color:white;
+.blanc li a {
+  color: white;
 }
 
-.menu a:hover,Whit
+.menu a:hover,
 .encours {
   background-color: gold;
   border-radius: 6px;
@@ -384,7 +383,8 @@ li {
       " pd";
   }
   /* le menu Sideg sort du flux et reste fixé en haut */
-  .pagetxt, .pageacc{
+  .pagetxt,
+  .pageacc {
     height: auto;
     grid-template-columns: auto;
     grid-template-rows: 17vh auto auto 7vh;
@@ -423,7 +423,6 @@ li {
   .menu,
   .menumarge {
     text-align: center;
-  
   }
   .menu li,
   .menumarge li {
