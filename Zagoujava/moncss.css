@@ -10,6 +10,8 @@
   box-sizing: border-box;
   --hautBox: 76vh;
   --hautBoxSmart: 63vh;
+  --maxWidth: 70vw;
+  --maxWidthSmart: 95vw;
 }
 /* format du coument avec boites body,header, main, aside, footer */
 .page {
@@ -162,14 +164,14 @@
 .larg169 {
   position: relative;
   width: calc(var(--hautBox) * 16 / 9);
-  max-width: 70vw;
+  max-width: var(--maxWidth);
   margin: auto;
 }
 
 .larg43 {
   position: relative;
   width: calc(var(--hautBox) * 4 / 3);
-  max-width: 70vw;
+  max-width: var(--maxWidth);
   margin: auto;
 }
 /* container pour les videos du sideD */
@@ -187,9 +189,11 @@
   position: relative;
   padding-bottom: 75%;
 }
-.l128 {
-  position: relative;
-  padding-bottom: 75%;
+/* adaptation du lecteur youtube */
+.lect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 /* sidebars menus */
 .sideg {
@@ -296,13 +300,6 @@ li {
   font-weight: bolder;
   font-size: 1.5em;
 }
-/* adaptation du lecteur youtube */
-.lect {
-  
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
 
 .relat {
   position: relative;
@@ -406,7 +403,7 @@ li {
   /* fixer le menu des pages textes en mode etroit deroulant */
   .fixmenu {
     position: sticky;
-    top:0;
+    top: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 10px gray;
@@ -415,11 +412,11 @@ li {
     margin: 0;
   }
   .larg43 {
-    max-width: 95vw;
+    max-width: var(--maxWidthSmart);
     width: calc(var(--hautBoxSmart) * 4 / 3);
   }
   .larg169 {
-    max-width: 95vw;
+    max-width: var(--maxWidthSmart);
     width: calc(var(--hautBoxSmart) * 16 / 9);
   }
 
