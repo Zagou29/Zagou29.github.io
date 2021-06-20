@@ -138,7 +138,7 @@
   padding-left: 1em;
   color: gold;
   text-align: left;
-  text-shadow: 1px 1px black;
+  text-shadow: 2px 2px 3px black;
 }
 /* placer le ss titre à droite en bas du bandeau */
 .sstitre {
@@ -239,7 +239,7 @@ li {
 .encours {
   background-color: gold;
   border-radius: 6px;
-  box-shadow: 1px 1px 1px black;
+  box-shadow: 5px 5px 10px black;
   padding: 2px;
 }
 .aplat {
@@ -267,7 +267,7 @@ li {
 
 /* identifier l'icone en cours */
 .actif {
-  box-shadow: 5px 5px 5px black;
+  box-shadow: 5px 5px 10px black;
 }
 
 /* section milieu ----------------*/
