@@ -18,14 +18,16 @@
     <script src="/Zagoujava/script.js" defer></script>
     <title>Avant</title>
   </head>
-  <body class="page imavant">
+  <body class="page imavant preload">
     <header class="entete avan">
       <h1 class="grdtitre">Avant</h1>
+      <h2 id="choixMenu"></h2>
       <h3 class="sstitre">Diapos</h3>
     </header>
+
     <main class="central">
       <div class="larg169 fantom">
-        <div class="l169">
+        <div class="l169 videoCadre">
           <iframe
             class="lect"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -36,13 +38,26 @@
         </div>
       </div>
     </main>
-    <aside class="sideg centvrt">
+    <aside class="sideg alignIcones">
+      <nav class="menuGliss">
+        <div class="overlay"></div>
+        <ul class="liens">
+          <li class="video" data-id="ZJzPWn7XIMU">1917 Guerre 14 18</li>
+          <li class="video" data-id="pBWwh2YR9gY">1918 à 1935 Avant Guerre</li>
+          <li class="video" data-id="vkZFkNQlC5w">1918 Avions</li>
+          <li class="video" data-id="18R4ae0a7To">1930 les Mary's</li>
+          <li class="video" data-id="L5LH44cXSpY">1940 Gonzague en Ecosse</li>
+          <li class="video" data-id="aEkR_SJwa1A">1944 à 1948 Dickie Père</li>
+          <li class="video" data-id="WBBWQDsuz7M">1947 à 2015 Parents</li>
+          <li class="video" data-id="pZ_CEYB9lC4">1948 à 1958 Lascamps</li>
+          <li class="video" data-id="m-9o0tQRh34">1956 à 1965 Mimosas</li>
+          <li class="video" data-id="0VOHWKq-mNA">1958 à 2002 Christian</li>
+        </ul>
+      </nav>
       <nav class="menu">
         <ul>
           <li><a href="/index.html">Accueil</a></li>
-          <li>
-            <a href="/Zagoujava/zagfamilyD.html">Family</a>
-          </li>
+          <li><a href="/Zagoujava/zagfamilyD.html">Family</a></li>
           <li><a href="/Zagoujava/voyagesD.html">Voyages</a></li>
           <li><a class="encours" href="/Zagoujava/avant.html">Avant</a></li>
           <li><a href="/Zagoujava/amis.html">Amis</a></li>
@@ -50,7 +65,7 @@
         </ul>
       </nav>
     </aside>
-    <aside class="sided">
+    <aside class="sided alignIcones">
       <nav class="menumarge">
         <ul>
           <li>
@@ -67,6 +82,15 @@
                 class="icones margr fdicone"
                 src="/Zagoujava/Icones/Video.svg"
                 alt="Videos"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img
+                class="icones margr fdicone"
+                id="hamburger"
+                src="/Zagoujava/Icones/Menu.svg"
+                alt="menu glissant"
             /></a>
           </li>
           <li>

@@ -5,7 +5,6 @@
   padding: 0;
   font-family: "Bubbler One", "Open Sans Condensed", "Gruppo", "Source Sans Pro",
     "Pompiere", sans-serif;
-
   font-size: 18px;
   box-sizing: border-box;
   --hautBox: 76vh;
@@ -81,7 +80,7 @@
   background-color: rgba(243, 160, 100, 0.582);
 }
 .gris {
-  background-color: rgba(187, 186, 186, 0.7);
+  background-color: rgba(187, 186, 186, 0.5);
 }
 .imfamily {
   background: url("/Zagoujava/Images/Mimosa.jpg") center/cover;
@@ -104,10 +103,10 @@
   background-repeat: no-repeat; */
   background-color: cornsilk;
 }
-
 /* en tete avec images panoramas et nom du Blog */
 .entete {
   grid-area: hd;
+  display: flex;
   position: relative;
 }
 .fam {
@@ -130,30 +129,31 @@
   background: url("/Zagoujava/Panoramas/Ecosse.jpg") left / cover;
 }
 .grdtitre {
-  position: relative;
   font-size: calc(2em + 3vw);
-  /*centrer verticlement le bandeau*/
-  top: 50%;
-  transform: translateY(-50%);
   padding-left: 1em;
   color: gold;
-  text-align: left;
   text-shadow: 2px 2px 3px black;
+  align-self: center;
+  flex:1;
+}
+#choixMenu {
+  flex: 2;
+  text-align: center;
+  align-self: flex-end;
+  color: chartreuse;
+  font-size: calc(1em + 1vw);
+  text-shadow: 1px 1px black;
 }
 /* placer le ss titre à droite en bas du bandeau */
 .sstitre {
-  position: absolute;
-  top: 100%;
-  transform: translateY(-100%);
-  right: 0;
   color: lime;
   text-align: right;
   text-shadow: 1px 1px black;
-  font-size: calc(1em + 2vw);
+  font-size: calc(1em + 1vw);
   padding-right: 0.5em;
+  align-self: flex-end;
+  flex:1;
 }
-/* boite de gauche dans les pages text */
-
 /* boite principale */
 .central {
   grid-area: ct;
@@ -167,7 +167,6 @@
   max-width: var(--maxWidth);
   margin: auto;
 }
-
 .larg43 {
   position: relative;
   width: calc(var(--hautBox) * 4 / 3);
@@ -194,29 +193,27 @@
   position: absolute;
   width: 100%;
   height: 100%;
-   box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.479);
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.479);
 }
 /* sidebars menus */
 .sideg {
   grid-area: sg;
-  /* centrer le menu vertical */
   padding: 0 2vw;
-}
-.centvert {
-  /* flex pour centrer verticalement le menu horizontal */
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .sided {
   grid-area: sd;
 }
-
+.alignIcones {
+  display: flex;
+  justify-content: center;
+}
+.alignMenuHoriz{
+  align-items: center;
+}
 /* menu principal */
 li {
   list-style-type: none;
 }
-
 .menu li {
   margin: 1.3vh 1.3vw;
 }
@@ -235,7 +232,6 @@ li {
 .blanc li a {
   color: white;
 }
-
 .menu a:hover,
 .encours {
   background-color: gold;
@@ -265,23 +261,19 @@ li {
   background-color: yellow;
   box-shadow: 5px 5px 5px black;
 }
-
 /* identifier l'icone en cours */
 .actif {
   box-shadow: 5px 5px 10px black;
 }
-
 /* section milieu ----------------*/
 .image {
   width: 100%;
 }
-
 /* polsize des textes */
 .justscroll {
   text-align: justify;
   /* background-color: blanchedalmond; */
   border: 2px solid rgba(248, 231, 165, 0.829);
-
   overflow: auto;
   margin: 0; /* pour supprimer la bande blanche entre blog et central des pages amis et Index */
 }
@@ -301,7 +293,6 @@ li {
   font-weight: bolder;
   font-size: 1.5em;
 }
-
 .relat {
   position: relative;
 }
@@ -339,15 +330,13 @@ li {
   flex-direction: row;
 }
 .textpd {
-  width: 100%;
-  text-align: left;
-  padding-left: 10px;
+  text-align: center;
+  flex: 1;
   font-size: calc(0.4em + 1vw);
 }
 /* caler les deux icones en ligne */
-
 .pied ul {
-  width: 20vw;
+  width: auto;
 }
 .pied li {
   padding-top: 2px;
@@ -355,7 +344,8 @@ li {
 }
 /* copyright calé à droite */
 .cop {
-  width: 6em;
+  width: auto;
+  padding: 0 0.5rem;
 }
 /* centre flexible pour les icones des blogs */
 .flexy {
@@ -366,7 +356,54 @@ li {
   margin: 0;
   overflow: scroll;
 }
-
+/* ================================ */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* background: rgba(44, 34, 34, 0.5); */
+  backdrop-filter: blur(1px);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 2s;
+}
+.liens {
+  position: fixed;
+  top: 17vh;
+  right: 10px;
+  padding: 0;
+  z-index: 2;
+  height: var(--hautBox);
+  width: auto;
+  overflow-y: scroll;
+  background-color: #fff;
+  transform: translateX(200px);
+  transition: transform 0.6s;
+}
+.nav--open .overlay {
+  visibility:visible;
+  opacity: 1;
+}
+.nav--open .liens {
+  transform: translateX(0);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+.video {
+  display: flex;
+  align-items: center;
+  color: #666666;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 5px 5px;
+  background: transform 0.2s;
+}
+.video:hover{
+  background-color: blanchedalmond;
+  cursor: pointer;
+}
 /*----------------------------------*/
 
 @media screen and (max-width: 740px) {
@@ -394,13 +431,6 @@ li {
       "sd"
       "pd";
   }
-
-  .centvrt {
-    /* flex pour centrer verticalement le menu horizontal des pages non text */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   /* fixer le menu des pages textes en mode etroit deroulant */
   .fixmenu {
     position: sticky;
@@ -412,6 +442,9 @@ li {
   .central {
     margin: 0;
   }
+  .alignIcones{
+     align-items: center; 
+  }
   .larg43 {
     max-width: var(--maxWidthSmart);
     width: calc(var(--hautBoxSmart) * 4 / 3);
@@ -420,7 +453,6 @@ li {
     max-width: var(--maxWidthSmart);
     width: calc(var(--hautBoxSmart) * 16 / 9);
   }
-
   .menu,
   .menumarge {
     text-align: center;
@@ -429,4 +461,5 @@ li {
   .menumarge li {
     display: inline;
   }
+  
 }

@@ -18,9 +18,10 @@
     <script src="/Zagoujava/script.js" defer></script>
     <title>Family Videos</title>
   </head>
-  <body class="page imfamily2">
+  <body class="page imfamily2 preload">
     <header class="entete fam">
       <h1 class="grdtitre">Family</h1>
+      <h2 id="choixMenu"></h2>
       <h3 class="sstitre">Videos</h3>
     </header>
     <!-- ecran central -->
@@ -28,7 +29,7 @@
       <!-- limites de largeur et hauteur adaptées au 4/3 -->
       <div class="larg43 fantom">
         <!-- creation de la place du lecteur YT -->
-        <div class="l43">
+        <div class="l43 videoCadre">
           <iframe
             class="lect"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -39,7 +40,49 @@
         </div>
       </div>
     </main>
-    <aside class="sideg centvrt">
+    <aside class="sideg alignIcones">
+      <nav class="menuGliss">
+        <div class="overlay"></div>
+        <ul class="liens">
+          <li class="video" data-id="AyEWZfM05cY">1973 Régates Cap Corse</li>
+          <li class="video" data-id="oBHmOOVXRVM">1976 Anne Lise</li>
+          <li class="video" data-id="ZDjxr4MG5XQ">1977 Marie</li>
+          <li class="video" data-id="AlLH_FH9l0U">1978 Eric Tanneguy</li>
+          <li class="video" data-id="XgVBoFbExy4">1979 Pantin</li>
+          <li class="video" data-id="egXv_MGp8O8">1980 à 1981</li>
+          <li class="video" data-id="m05obQ-SNt8">1983 Premiers pas de Lise</li>
+          <li class="video" data-id="6rVJQEVNabI">1984 à 1987 Bavent</li>
+          <li class="video" data-id="Mmf9O89UyMs">1988 à 1989 Hotot</li>
+          <li class="video" data-id="4NU-3638594">
+            1990 à 1991 Voile à l'Aber
+          </li>
+          <li class="video" data-id="vjkLVWngmyQ">1992 Classe de Neige</li>
+          <li class="video" data-id="G1sdHeFT49E">1992 Irlande</li>
+          <li class="video" data-id="CdaHOov0XGc">1993 Meadowlands</li>
+          <li class="video" data-id="-1oFaHCFW1o">
+            1993 à 1994 Zodiac et Giens
+          </li>
+          <li class="video" data-id="u6XMHFTHOJk">1995 Anniversaire de Papa</li>
+          <li class="video" data-id="MAEc_ieNnFg">
+            1996 à 1997 Jamie, Persée
+          </li>
+          <li class="video" data-id="wDL4ZjmiInc">
+            1997 Mariage de Benoît & Michele
+          </li>
+          <li class="video" data-id="SAgwaaIMaSM">
+            2002 Mariage de Marie & Yann
+          </li>
+          <li class="video" data-id="2pQ3T2turKI">
+            2003 à 2004 Lili à Honfleur
+          </li>
+          <li class="video" data-id="6GuGSYawd5A">2004 Noël de fin</li>
+          <li class="video" data-id="DAku5K2y6Lc">2005 Lili à Riantec</li>
+          <li class="video" data-id="w6jPs4WuiGs">
+            2006 à 2007 Danièle, Monique
+          </li>
+          <li class="video" data-id="7ET6EIOqtuY">2009 à 2010 Margot</li>
+        </ul>
+      </nav>
       <nav class="menu blanc">
         <ul>
           <li><a href="/index.html">Accueil</a></li>
@@ -53,7 +96,7 @@
         </ul>
       </nav>
     </aside>
-    <aside class="sided">
+    <aside class="sided alignIcones">
       <nav class="menumarge">
         <ul>
           <li>
@@ -75,6 +118,15 @@
           <li>
             <a href="#"
               ><img
+                class="icones margr fdicone"
+                id="hamburger"
+                src="/Zagoujava/Icones/Menu.svg"
+                alt="menu glissant"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img
                 class="icones margr bascule fdicone"
                 src="/Zagoujava/Icones/montagne.png"
                 alt="bascule"
@@ -84,7 +136,7 @@
       </nav>
     </aside>
 
-    <footer class="pied">
+    <footer class="pied gris">
       <p class="textpd">
         Toutes les vidéos depuis 1971 jusqu'à 2010. la suite est en cours de
         montage...

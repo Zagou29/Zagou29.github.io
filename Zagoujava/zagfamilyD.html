@@ -18,14 +18,15 @@
     <script src="/Zagoujava/script.js" defer></script>
     <title>Family Diapos</title>
   </head>
-  <body class="page imfamily">
+  <body class="page imfamily preload">
     <header class="entete fam">
       <h1 class="grdtitre">Family</h1>
+      <h2 id="choixMenu"></h2>
       <h3 class="sstitre">Diapos</h3>
     </header>
     <main class="central">
       <div class="larg43 fantom">
-        <div class="l43">
+        <div class="l43 videoCadre">
           <iframe
             class="lect"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -36,7 +37,22 @@
         </div>
       </div>
     </main>
-    <aside class="sideg centvrt">
+    <aside class="sideg alignIcones">
+      <nav class="menuGliss">
+        <div class="overlay"></div>
+        <ul class="liens">
+          <li class="video" data-id="dJEy6kk4SzQ">1970 à 1980</li>
+          <li class="video" data-id="ISi4mZmI90Y">1981 à 1982</li>
+          <li class="video" data-id="R4jvO5K2L0I">1982 à 1987</li>
+          <li class="video" data-id="qjbQErMmbjY">1987 à 1990</li>
+          <li class="video" data-id="PTHvyBHxHX4">1991 à 1992</li>
+          <li class="video" data-id="9Kbj3Q7xb2Y">1992 à 1993 Irlande</li>
+          <li class="video" data-id="Mta_h-2F5Xk">1993 à 2000</li>
+          <li class="video" data-id="TC_0dzu0Nww">2000 à 2004</li>
+          <li class="video" data-id="8NP6CuZxWQk">2005 à 2007</li>
+          <li class="video" data-id="55rUeR9rCJs">2019 Cousins Americains</li>
+        </ul>
+      </nav>
       <nav class="menu blanc">
         <ul>
           <li><a href="/index.html">Accueil</a></li>
@@ -50,7 +66,7 @@
         </ul>
       </nav>
     </aside>
-    <aside class="sided">
+    <aside class="sided alignIcones">
       <nav class="menumarge">
         <ul>
           <li>
@@ -72,6 +88,15 @@
           <li>
             <a href="#"
               ><img
+                class="icones margr fdicone"
+                id="hamburger"
+                src="/Zagoujava/Icones/Menu.svg"
+                alt="menu glissant"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img
                 class="icones margr bascule fdicone"
                 src="/Zagoujava/Icones/montagne.png"
                 alt="bascule"
@@ -80,7 +105,7 @@
         </ul>
       </nav>
     </aside>
-    <footer class="pied">
+    <footer class="pied gris">
       <p class="textpd">
         Toutes les photos de la Zag Family depuis 1971 jusqu'en 2007.. La suite
         à venir. (Jusqu'à 2004, ce sont les photos argentiques d'Anne Lise)
