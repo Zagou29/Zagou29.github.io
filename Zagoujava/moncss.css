@@ -404,6 +404,9 @@ li {
   background-color: blanchedalmond;
   cursor: pointer;
 }
+.choisi{
+  background-color: gold;
+}
 /*----------------------------------*/
 
 @media screen and (max-width: 740px) {
