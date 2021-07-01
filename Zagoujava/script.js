@@ -1,6 +1,5 @@
-const fantom = document.querySelector(".fantom");
 const bascule = document.querySelector(".bascule");
-console.log(fantom);
+const fantom = document.querySelector(".videoCadre");
 bascule.addEventListener("click", () => {
   fantom.style.display = fantom.style.display === "none" ? "block" : "none";
 });
@@ -12,7 +11,7 @@ let fermerAncres = (nav) => {
   ancres.forEach((a) => {
     a.addEventListener("click", () => {
       nav.classList.remove("nav--open"); /* fermer le menu */
-      a.classList.add("choisi");/* Sélectionner la video sur la liste */
+      a.classList.add("choisi"); /* Sélectionner la video sur la liste */
       titreMenu.innerHTML = a.innerHTML; /* afficher le menu dans l'entete */
       affVideo(a.dataset.id); /* afficher la video */
     });
