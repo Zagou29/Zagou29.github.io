@@ -12,6 +12,9 @@
   --maxWidth: 70vw;
   --maxWidthSmart: 95vw;
 }
+.preload * {
+  transition: none !important;
+}
 /* format du coument avec boites body,header, main, aside, footer */
 .page {
   height: 100vh;
