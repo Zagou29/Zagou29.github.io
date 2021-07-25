@@ -4,7 +4,7 @@ bascule.addEventListener("click", () => {
   fantom.style.display = fantom.style.display === "none" ? "block" : "none";
 });
 /* =========================== */
-/* selection des ancres , puis fonction pour fermer le menu quand on slectionne une ancre */
+/* selection des ancres , puis fonction pour fermer le menu quand on selectionne une ancre */
 const ancres = Array.from(document.querySelectorAll(".video"));
 const titreMenu = document.querySelector("#choixMenu");
 let fermerAncres = (nav) => {
