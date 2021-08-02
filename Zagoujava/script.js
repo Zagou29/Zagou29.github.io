@@ -5,7 +5,7 @@ bascule.addEventListener("click", () => {
 });
 /* =========================== */
 /* selection des ancres , puis fonction pour fermer le menu quand on selectionne une ancre */
-const ancres = Array.from(document.querySelectorAll(".video"));
+const ancres = Array.from(document.querySelectorAll(".liens li"));
 const titreMenu = document.querySelector("#choixMenu");
 let fermerAncres = (nav) => {
   ancres.forEach((a) => {
