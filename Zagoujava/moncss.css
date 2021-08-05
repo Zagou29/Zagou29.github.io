@@ -19,7 +19,7 @@
 .page {
   height: 100vh;
   display: grid;
-  grid-template-columns: 15vw 1fr 15vw;
+  grid-template-columns: 10vw 1fr 10vw;
   grid-template-rows: 17vh auto 7vh;
   grid-template-areas:
     "hd hd hd"
@@ -235,6 +235,7 @@ li {
 }
 .blanc li a {
   color: white;
+  text-shadow: 1px 1px 1px black;
 }
 .menu a:hover,
 .encours {
@@ -243,11 +244,9 @@ li {
   box-shadow: 5px 5px 10px black;
   padding: 2px;
 }
-.aplat {
-  text-align: center;
-}
+
 .aplat li {
-  display: inline;
+  display: inline-block;
 }
 /* menu icones */
 .icones {
@@ -465,7 +464,7 @@ li {
   }
   .menu li,
   .menumarge li {
-    display: inline;
+    display: inline-block;
   }
   
 }
