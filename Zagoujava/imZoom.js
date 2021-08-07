@@ -22,7 +22,8 @@ let zoomImage = (image) => {
   document.body.appendChild(div);
 };
 /* cherche la div class="zoom" et la ferme, si elle existe */
-let ferme = () => {
+let ferme = (e) => {
+  e.preventDefault()
   const div = document.querySelector(".zoom");
   /* si on clique sur ailleurs que les images, div est null car la div n'a pas été crée */
   if (div != null) {
@@ -30,11 +31,15 @@ let ferme = () => {
   }
 };
 /* si on pointe sur le container "image", on zoome, et si on releve le pointer on arrete le zoom */
-document.getElementById("image").addEventListener("pointerdown", (e) => {
+document.getElementById("image").addEventListener("mousedown", (e) => {
   e.preventDefault();
   zoomImage(e.target.outerHTML);
-  const image = document.querySelector(".zoom").children;
-
-  document.addEventListener("pointerup", ferme);
+  document.addEventListener("mouseup", ferme);
 });
-/*  */
+/* pour les smartphones */
+document.getElementById("image").addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  zoomImage(e.target.outerHTML);
+  document.addEventListener("touchend", ferme);
+});
+
