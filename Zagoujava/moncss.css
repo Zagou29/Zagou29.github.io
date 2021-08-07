@@ -13,10 +13,13 @@
   --maxWidth: 70vw;
   --maxWidthSmart: 95vw;
   --glider: 50vw; /* variable pour le glider de la page Amis */
+  --imgL :95vw;/* variable pour la largeur d'image zoom */
+  --imgH :auto;/* variable pour la hauteur d'image zoom */
 }
 .preload * {
   transition: none !important;
 }
+
 /* format du grilles pour body,header, main, aside, footer */
 .pageacc {
   display: grid;
@@ -167,7 +170,7 @@
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 10;
   box-shadow: 0 2px 10px gray;
 }
 /* boite principale */
@@ -288,18 +291,34 @@ li {
   box-shadow: 5px 5px 10px black;
 }
 /* images de la page d'accueil ----------------*/
-.image {
+#image {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
 }
-.image img {
+#image img {
   width: 200px;
   height: 200px;
   object-position: left;
   object-fit: cover;
   margin: 1px;
+}
+.zoom {
+  position: fixed;
+  margin:auto;
+  top:10px;
+  left:50%;
+  
+  transform: translateX(-50%);
+  z-index: 200;
+  
+}
+.zoom img{
+  width: var(--imgL);
+  height: var(--imgH);
+  z-index: 200;
+  box-shadow: 10px 10px 20px black;
 }
 
 /* polsize des textes */
