@@ -36,10 +36,10 @@ document.getElementById("image").addEventListener("mousedown", (e) => {
   zoomImage(e.target.outerHTML);
   document.addEventListener("mouseup", ferme);
 });
-/* pour les smartphones */
-document.getElementById("image").addEventListener("touchstart", (e) => {
-  e.preventDefault();
-  zoomImage(e.target.outerHTML);
-  document.addEventListener("touchend", ferme);
-});
+// /* pour les smartphones */
+// document.getElementById("image").addEventListener("touchstart", (e) => {
+//   e.preventDefault();
+//   zoomImage(e.target.outerHTML);
+//   document.addEventListener("touchend", ferme);
+// });
 
