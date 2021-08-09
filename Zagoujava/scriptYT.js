@@ -1,9 +1,10 @@
+/* bascule Iframe YT vers image de fond */
 const bascule = document.querySelector(".bascule");
 const fantom = document.querySelector(".videoCadre");
 bascule.addEventListener("click", () => {
   fantom.style.display = fantom.style.display === "none" ? "block" : "none";
 });
-/* =========================== */
+/* ===============gestion des Iframes YT============================= */
 /* selection des ancres , puis fonction pour fermer le menu quand on selectionne une ancre */
 const ancres = Array.from(document.querySelectorAll(".liens li"));
 const titreMenu = document.querySelector("#choixMenu");
@@ -45,6 +46,7 @@ function affVideo(id) {
   src="https://www.youtube-nocookie.com/embed/${id}?rel=0&amp;modestbranding=1"
 ></iframe>`;
 }
+/* fonction pour afficher une play List YouTube */
 function affPlay(id) {
   document.querySelector(".videoCadre").innerHTML = ` <iframe
   class="lect"

@@ -13,8 +13,8 @@
   --maxWidth: 70vw;
   --maxWidthSmart: 95vw;
   --glider: 50vw; /* variable pour le glider de la page Amis */
-  --imgL :95vw;/* variable pour la largeur d'image zoom */
-  --imgH :auto;/* variable pour la hauteur d'image zoom */
+  --imgL: 95vw; /* variable pour la largeur d'image zoom */
+  --imgH: auto; /* variable pour la hauteur d'image zoom */
 }
 .preload * {
   transition: none !important;
@@ -291,13 +291,15 @@ li {
   box-shadow: 5px 5px 10px black;
 }
 /* images de la page d'accueil ----------------*/
-#image {
+.image,
+.blind {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
 }
-#image img {
+.image img,
+.blind img {
   width: 200px;
   height: 200px;
   object-position: left;
@@ -306,21 +308,46 @@ li {
 }
 .zoom {
   position: fixed;
-  margin:auto;
-  top:10px;
-  left:50%;
-  
+  margin: auto;
+  top: 10px;
+  left: 50%;
   transform: translateX(-50%);
   z-index: 200;
-  
 }
-.zoom img{
+.zoom img {
   width: var(--imgL);
   height: var(--imgH);
-  z-index: 200;
   box-shadow: 10px 10px 20px black;
 }
+#precedent,
+#suivant {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  opacity: 0.5;
+  top: 40%;
+  position: absolute;
+  font-size: 70px;
+  color: rgba(220, 220, 220, 1);
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 2px black;
+  padding: 10px;
+  z-index: 300;
+}
 
+#precedent {
+  left: 0;
+}
+
+#suivant {
+  right: 0;
+}
+
+#precedent:hover,
+#suivant:hover {
+  opacity: 1;
+  z-index: 300;
+}
+/* ---------------------------------- */
 /* polsize des textes */
 .justscroll {
   text-align: justify;
@@ -487,6 +514,7 @@ li {
   transform: scaleX(0.2);
   opacity: 1;
 }
+
 /*----------------------------------*/
 
 @media screen and (max-width: 740px) {
