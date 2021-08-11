@@ -27,7 +27,7 @@ let zoomImage = (image) => {
 };
 /* -------------------------------------------------------- */
 /* Tableau des images img */
-const tab = Array.from(document.querySelectorAll(".image img"));
+const tab = document.querySelectorAll(".image img");
 /* tableau des outerHTML des images */
 const outers = [];
 tab.forEach((el) => {
