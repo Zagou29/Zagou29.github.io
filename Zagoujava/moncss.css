@@ -165,7 +165,7 @@
   align-self: flex-end;
   flex: 1;
 }
-/* meny sticky pour la page d'acceuil en ordi et Accueil/ Amis en smartphone */
+/* meny sticky pour la page d'acceuil en ordi et Photos/ Amis en smartphone */
 .fixmenu {
   position: sticky;
   top: 0;
