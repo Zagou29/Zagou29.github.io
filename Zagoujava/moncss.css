@@ -77,7 +77,14 @@
   background: url("/Zagoujava/Images/Grece.jpg") center/cover;
   background-repeat: no-repeat;
 }
-
+.imarzD {
+  background: url("/Zagoujava/Images/Niemeyer.jpg") right/cover;
+  background-repeat: no-repeat;
+}
+.imarzV {
+  background: url("/Zagoujava/Images/Niemeyer.jpg") center/cover;
+  background-repeat: no-repeat;
+}
 .imfamilyD {
   background: url("/Zagoujava/Images/Mimosa.jpg") center/cover;
   background-repeat: no-repeat;
@@ -119,6 +126,7 @@
   grid-area: hd;
   display: flex;
   position: relative;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.788);
 }
 .fam {
   background: url("/Zagoujava/Panoramas/Bateaux\ Aber.jpg") center/cover;
@@ -128,6 +136,10 @@
 }
 .voy {
   background: url("/Zagoujava/Panoramas/Venise\ Soleil\ Couchant.jpg")
+    center/cover;
+}
+.marz {
+  background: url("/Zagoujava/Panoramas/SaintNazaire.jpg")
     center/cover;
 }
 .imgblog {
