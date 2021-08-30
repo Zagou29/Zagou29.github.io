@@ -27,7 +27,7 @@
   grid-template-columns: auto;
   grid-template-rows: 17vh 5vh auto auto 7vh;
   grid-template-areas:
-    "hd "
+    "hd"
     "sg"
     "ct"
     "sd"
@@ -78,11 +78,11 @@
   background-repeat: no-repeat;
 }
 .imarzD {
-  background: url("/Zagoujava/Images/Niemeyer.jpg") right/cover;
+  background: url("/Zagoujava/Images/Estivent.jpg") center/cover;
   background-repeat: no-repeat;
 }
 .imarzV {
-  background: url("/Zagoujava/Images/Niemeyer.jpg") center/cover;
+  background: url("/Zagoujava/Images/cezon.jpg") center/cover;
   background-repeat: no-repeat;
 }
 .imfamilyD {
@@ -108,7 +108,7 @@
   z-index: 1;
 }
 .jaune {
-  background-color: rgba(248, 231, 165, 0.829);
+  background-color: rgba(248, 231, 165, 0.7);
   box-shadow: 0 2px 10px gray;
   z-index: 10;
 }
@@ -126,7 +126,9 @@
   grid-area: hd;
   display: flex;
   position: relative;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.788);
+}
+.ombre {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.788);
 }
 .fam {
   background: url("/Zagoujava/Panoramas/Bateaux\ Aber.jpg") center/cover;
@@ -139,8 +141,7 @@
     center/cover;
 }
 .marz {
-  background: url("/Zagoujava/Panoramas/SaintNazaire.jpg")
-    center/cover;
+  background: url("/Zagoujava/Panoramas/SaintNazaire.jpg") center/cover;
 }
 .imgblog {
   background: url("/Zagoujava/Panoramas/Ile\ de\ Sein\ 2.jpg") center/cover;
@@ -194,6 +195,7 @@
 /* ratrappe la marge en bas dans Amis */
 .marge {
   margin: 0;
+  overflow-y: scroll;
 }
 /* boite pour regler la largeur */
 /* la largeur calculée depasse tres souvent la largeur de l'ecran. c'est la max with qui le ramene à la largeur de la boite central */
@@ -550,11 +552,11 @@ li {
     grid-template-columns: auto;
     grid-template-rows: 17vh 5vh auto auto 7vh;
     grid-template-areas:
-      " hd"
-      " sg"
-      " ct "
-      " sd"
-      " pd";
+      "hd"
+      "sg"
+      "ct"
+      "sd"
+      "pd";
   }
 
   .alignIcones {
@@ -582,15 +584,15 @@ li {
     height: auto;
   }
 }
-@media screen and (max-width: 500px){
-  .page{
-     grid-template-rows: 17vh 12vh 7vh auto 7vh;
+@media screen and (max-width: 500px) {
+  .page {
+    grid-template-rows: 17vh 12vh 7vh auto 7vh;
   }
-  .pageAmis, .pageacc{
+  .pageAmis,
+  .pageacc {
     grid-template-rows: 17vh 12vh auto auto 7vh;
   }
-  .pageblog{
-    grid-template-rows: 17vh 12vh  auto 7vh;
+  .pageblog {
+    grid-template-rows: 17vh 12vh auto 7vh;
   }
-  
 }
