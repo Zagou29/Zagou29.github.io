@@ -582,3 +582,15 @@ li {
     height: auto;
   }
 }
+@media screen and (max-width: 500px){
+  .page{
+     grid-template-rows: 17vh 12vh 7vh auto 7vh;
+  }
+  .pageAmis, .pageacc{
+    grid-template-rows: 17vh 12vh auto auto 7vh;
+  }
+  .pageblog{
+    grid-template-rows: 17vh 12vh  auto 7vh;
+  }
+  
+}
