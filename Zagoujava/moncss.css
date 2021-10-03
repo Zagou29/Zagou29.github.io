@@ -8,9 +8,13 @@
   font-size: 18px;
   box-sizing: border-box;
   /* variables pour les Iframe Youtubes */
-  --hautBox: 76vh;
+  --hautEntete: 17vh; /* hauteur des entetes */
+  --hautPiedPage: 7vh;
+  --hautBox: calc(
+    100vh - (var(--hautEntete) + 2vh + var(--hautPiedPage))
+  ); /* hauteur restant pour les ecrans YT*/
   --hautBoxSmart: 63vh;
-  --maxWidth: 70vw;
+  --maxWidth: 80vw;
   --maxWidthSmart: 95vw;
   --glider: 50vw; /* variable pour le glider de la page Amis */
   --imgL: 95vw; /* variable pour la largeur d'image zoom */
@@ -25,7 +29,7 @@
   display: grid;
   height: auto;
   grid-template-columns: auto;
-  grid-template-rows: 17vh 5vh auto auto 7vh;
+  grid-template-rows: var(--hautEntete) 5vh auto auto var(--hautPiedPage);
   grid-template-areas:
     "hd"
     "sg"
@@ -37,7 +41,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 10vw 1fr 10vw;
-  grid-template-rows: 17vh auto 7vh;
+  grid-template-rows: var(--hautEntete) auto var(--hautPiedPage);
   grid-template-areas:
     "hd hd hd"
     "sg ct sd"
@@ -49,23 +53,12 @@
   height: 100vh;
   --gliderClamped: clamp(200px, var(--glider), 80vw);
   grid-template-columns: var(--gliderClamped) 1fr;
-  grid-template-rows: 17vh 5vh auto 7vh;
+  grid-template-rows: var(--hautEntete) 5vh auto var(--hautPiedPage);
   grid-template-areas:
     "hd hd"
     "sg sg"
     "ct sd"
     "pd pd";
-}
-.pageblog {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 17vh 5vh auto 7vh;
-  grid-template-areas:
-    "hd "
-    "sg "
-    "ct "
-    "pd ";
 }
 
 /* fonds de pages */
@@ -103,7 +96,7 @@
 }
 /* couleurs de fond ou de barre */
 .bleu {
-  background-color: rgba(180, 221, 238, 0.5);
+  background-color: rgba(180, 221, 238, 0.7);
   box-shadow: 0 2px 10px gray;
   z-index: 1;
 }
@@ -131,23 +124,22 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.788);
 }
 .fam {
-  background: url("/Zagoujava/Panoramas/Bateaux\ Aber.jpg") center/cover;
+  background: url("/Zagoujava/Panoramas/Dunes.jpg") top / cover;
 }
 .avan {
-  background: url("/Zagoujava/Panoramas/Avant2.jpg") right/cover;
+  background: url("/Zagoujava/Panoramas/Grandpere.jpg") top / cover;
 }
 .voy {
-  background: url("/Zagoujava/Panoramas/Venise\ Soleil\ Couchant.jpg")
-    center/cover;
+  background: url("/Zagoujava/Panoramas/Venise.jpg") center/cover;
 }
 .marz {
   background: url("/Zagoujava/Panoramas/SaintNazaire.jpg") center/cover;
 }
 .imgblog {
-  background: url("/Zagoujava/Panoramas/Ile\ de\ Sein\ 2.jpg") center/cover;
+  background: url("/Zagoujava/Panoramas/Ile_de_Sein.jpg") center/cover;
 }
 .imgac {
-  background: url("/Zagoujava/Panoramas/Keriskin.jpg") left / cover;
+  background: url("/Zagoujava/Panoramas/IleVierge.jpg") top / cover;
 }
 .imgam {
   background: url("/Zagoujava/Panoramas/Ecosse.jpg") left / cover;
@@ -190,7 +182,7 @@
 .central {
   grid-area: ct;
   position: relative;
-  margin: 5px 0;
+  margin: 1vh 0;
 }
 /* ratrappe la marge en bas dans Amis */
 .marge {
