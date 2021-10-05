@@ -277,7 +277,7 @@ li {
 .encours {
   background-color: gold;
   border-radius: 2px;
-  box-shadow: 5px 5px 10px black2
+  box-shadow: 5px 5px 10px black;
 }
 /* passer les <li< en inline et leur donner la place en horizontal */
 .aplat li {
