@@ -25,3 +25,10 @@ function resizer(element, cb) {
 resizer(document.querySelector(".resizer"), (x) => {
   document.body.style.setProperty("--glider", x + "px");
 });
+/* =============== menu principal smartphone */
+
+const hamburg = document.querySelector(".hamb");
+const menuH = document.querySelector(".menu ul");
+hamburg.addEventListener("click", () => {
+  menuH.style.display =  menuH.style.display === "block" ? "none" : "block";
+});

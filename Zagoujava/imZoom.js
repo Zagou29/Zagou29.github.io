@@ -56,7 +56,8 @@ stockImages.addEventListener("click", (e) => {
     if (numero > outers.length - 1) {
       numero = 0;
     }
-    document.querySelector(".zoom img").outerHTML = outers[numero];/* remplacer l'image par celle de numero +/-1 */
+    document.querySelector(".zoom img").outerHTML =
+      outers[numero]; /* remplacer l'image par celle de numero +/-1 */
     dimZoom(zoom); /* retailler l'image */
   };
   /* ==============zoomer l'image cliquée */
@@ -95,4 +96,11 @@ stockImages.addEventListener("click", (e) => {
   /* ============== fermer en cliquant sur Zoomo une touche*/
   zoom.addEventListener("click", ferme);
   document.addEventListener("keypress", ferme);
+});
+/* =============== menu principal smartphone */
+
+const hamburg = document.querySelector(".hamb");
+const menuH = document.querySelector(".menu ul");
+hamburg.addEventListener("click", () => {
+  menuH.style.display =  menuH.style.display === "block" ? "none" : "block";
 });

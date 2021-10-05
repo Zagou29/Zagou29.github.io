@@ -10,10 +10,9 @@
   /* variables pour les Iframe Youtubes */
   --hautEntete: 17vh; /* hauteur des entetes */
   --hautPiedPage: 7vh;
-  --hautBox: calc(
-    100vh - (var(--hautEntete) + 2vh + var(--hautPiedPage))
-  ); /* hauteur restant pour les ecrans YT*/
-  --hautBoxSmart: 63vh;
+  --hautBox: calc(100vh - (var(--hautEntete) + 2vh + var(--hautPiedPage)));
+  /* hauteur restant pour les ecrans YT*/
+  --hautBoxSmart: calc(100vh - (var(--hautEntete) + 9vh + var(--hautPiedPage)));
   --maxWidth: 80vw;
   --maxWidthSmart: 95vw;
   --glider: 50vw; /* variable pour le glider de la page Amis */
@@ -29,7 +28,7 @@
   display: grid;
   height: auto;
   grid-template-columns: auto;
-  grid-template-rows: var(--hautEntete) 5vh auto auto var(--hautPiedPage);
+  grid-template-rows: var(--hautEntete) 2rem auto auto var(--hautPiedPage);
   grid-template-areas:
     "hd"
     "sg"
@@ -40,7 +39,7 @@
 .page {
   height: 100vh;
   display: grid;
-  grid-template-columns: 10vw 1fr 10vw;
+  grid-template-columns: 11vw 1fr 11vw;
   grid-template-rows: var(--hautEntete) auto var(--hautPiedPage);
   grid-template-areas:
     "hd hd hd"
@@ -53,7 +52,7 @@
   height: 100vh;
   --gliderClamped: clamp(200px, var(--glider), 80vw);
   grid-template-columns: var(--gliderClamped) 1fr;
-  grid-template-rows: var(--hautEntete) 5vh auto var(--hautPiedPage);
+  grid-template-rows: var(--hautEntete) 2rem auto var(--hautPiedPage);
   grid-template-areas:
     "hd hd"
     "sg sg"
@@ -157,7 +156,7 @@
   text-align: center;
   align-self: flex-end;
   color: chartreuse;
-  font-size: calc(1em + 1vw);
+  font-size: calc(1rem + 1vw);
   text-shadow: 1px 1px black;
 }
 /* placer le ss titre à droite en bas du bandeau */
@@ -165,10 +164,17 @@
   color: lime;
   text-align: right;
   text-shadow: 1px 1px black;
-  font-size: calc(1em + 1vw);
-  padding-right: 0.5em;
-  align-self: flex-end;
+  font-size: calc(1rem + 1vw);
+  padding-right: 2rem;
+  align-self: flex-start;
   flex: 1;
+}
+.hamb {
+  position: absolute;
+  right: 4vw;
+  bottom: 2vh;
+  display: none;
+  background-color: rgba(245, 245, 245, 0.7);
 }
 /* meny sticky pour la page d'acceuil en ordi et Photos/ Amis en smartphone */
 .fixmenu {
@@ -246,12 +252,14 @@ li {
   list-style-type: none;
 }
 .menu li {
-  margin: 1.3vh 1.3vw;
+  margin: 1.3vh 1rem;
 }
+
 .menumarge li {
   text-align: center;
   margin: 10px 0;
 }
+
 .menu li a,
 .menumarge li a {
   text-decoration: none;
@@ -268,9 +276,8 @@ li {
 .menu a:hover,
 .encours {
   background-color: gold;
-  border-radius: 6px;
-  box-shadow: 5px 5px 10px black;
-  padding: 2px;
+  border-radius: 2px;
+  box-shadow: 5px 5px 10px black2
 }
 /* passer les <li< en inline et leur donner la place en horizontal */
 .aplat li {
@@ -530,7 +537,7 @@ li {
 @media screen and (max-width: 740px) {
   .page {
     grid-template-columns: auto;
-    grid-template-rows: 17vh 5vh 7vh auto 7vh;
+    grid-template-rows: var(--hautEntete) 0 7vh auto var(--hautPiedPage);
     grid-template-areas:
       " hd"
       " sg"
@@ -539,10 +546,11 @@ li {
       " pd";
   }
   /* le menu Sideg sort du flux et reste fixé en haut */
-  .pageAmis {
+  .pageAmis,
+  .pageacc {
     height: auto;
     grid-template-columns: auto;
-    grid-template-rows: 17vh 5vh auto auto 7vh;
+    grid-template-rows: var(--hautEntete) 0 auto auto var(--hautPiedPage);
     grid-template-areas:
       "hd"
       "sg"
@@ -552,7 +560,10 @@ li {
   }
 
   .alignIcones {
-    align-items: center;
+    align-items: flex-start;
+  }
+  .hamb {
+    display: block;
   }
   /* réinitialiser les largeurs pour les smartphones */
   .larg43 {
@@ -567,24 +578,40 @@ li {
   .menumarge {
     text-align: center;
   }
-  .menu li,
+  .menu ul {
+    display: none;
+    position: relative;
+    width: var(--maxWidthSmart);
+    margin: 5px -2vw 0;
+  }
+  .aplat li {
+    display: block;
+  }
+  .menu li {
+    background-color: rgba(186, 185, 185, 0.9);
+    box-shadow: 2px 0 5px black;
+    border-radius: 2px;
+    margin: 0;
+  }
   .menumarge li {
     display: inline-block;
+  }
+
+  .menu li a {
+    display: block;
   }
   /* débloquer la page ct en mode smartphone */
   .envelop {
     height: auto;
   }
-}
-@media screen and (max-width: 500px) {
-  .page {
-    grid-template-rows: 17vh 12vh 7vh auto 7vh;
+  .entete {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 2px 10px gray;
   }
-  .pageAmis,
-  .pageacc {
-    grid-template-rows: 17vh 12vh auto auto 7vh;
-  }
-  .pageblog {
-    grid-template-rows: 17vh 12vh auto 7vh;
+  .sstitre{
+    padding-right:1rem ;
   }
 }
