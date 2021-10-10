@@ -1,5 +1,5 @@
 /* =============== menu principal smartphone */
-import { menuhamb } from "./menuHamb.js";
+import { menuhamb } from "./menusHamb.js";
 menuhamb()
 
 
