@@ -25,13 +25,7 @@ function resizer(element, cb) {
 resizer(document.querySelector(".resizer"), (x) => {
   document.body.style.setProperty("--glider", x + "px");
 });
-/* =============== menu principal smartphone */
 
-const hamburg = document.querySelector(".hamb");
-const menuH = document.querySelector(".menu ul");
-hamburg.addEventListener("click", () => {
-  menuH.style.transition = "opacity 0.5s  linear";
-  menuH.style.opacity = menuH.style.opacity === "1" ? "0" : "1";
-  menuH.style.visibility =
-    menuH.style.visibility === "visible" ? "hidden" : "visible";
-});
+/* =============== menu principal smartphone */
+import { menuhamb } from "./menuHamb.js";
+menuhamb();
