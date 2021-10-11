@@ -8,6 +8,11 @@ const bascule = document.querySelector(".bascule");
 const fantom = document.querySelector(".videoCadre");
 bascule.addEventListener("click", () => {
   fantom.style.display = fantom.style.display === "none" ? "block" : "none";
+  if (fantom.style.display === "none") {
+    bascule.classList.add("actif")
+  } else {
+    bascule.classList.remove("actif")
+  }
 });
 /* ===============gestion des Iframes YT============================= */
 /* selection des ancres , puis fonction pour fermer le menu quand on selectionne une ancre */
@@ -18,8 +23,9 @@ let fermerAncres = (nav) => {
     a.addEventListener("click", () => {
       nav.classList.remove("nav--open"); /* fermer le menu */
       a.classList.add("choisi"); /* Sélectionner la video sur la liste */
+      if(a.dataset.id) /* si Dataset non nul, affihcer sous titre et video */
       titreMenu.innerHTML = a.innerHTML; /* afficher le menu dans l'entete */
-      affVideo(a.dataset.id); /* afficher la video */
+     { affVideo(a.dataset.id);} /* afficher la video */
     });
   });
 };

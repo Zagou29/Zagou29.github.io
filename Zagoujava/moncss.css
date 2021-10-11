@@ -102,7 +102,7 @@
 .jaune {
   background-color: rgba(248, 231, 165, 0.7);
   box-shadow: 0 2px 10px gray;
-  z-index: 10;
+  z-index: 1;
 }
 .marron {
   background-color: rgba(243, 160, 100, 0.582);
@@ -327,7 +327,7 @@ li {
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 200;
+  z-index: 10;
 }
 .zoom img {
   width: var(--imgL);
@@ -460,7 +460,8 @@ li {
   left: 0;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: blur(1px);
+  /* backdrop-filter: blur(1px); */
+  background-color: rgba(249, 229, 118, 0.2);
   visibility: hidden; /* inexistant */
   opacity: 0; /* transparent */
   transition: opacity 0.6s;
@@ -468,23 +469,26 @@ li {
 .liens {
   position: fixed;
   top: 17vh;
-  right: 10px;
+  right: 20px;
   padding: 0;
-  z-index: 2;
-  height: var(--hautBox);
+  z-index: 12;
+  height: auto;
+  max-height: var(--hautBox);
   width: auto;
   overflow-y: scroll;
   background-color: #fff;
-  transform: translateX(200px); /* volet caché à droite */
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.625);
+  border-radius: 5px;
+  transform: translateX(210px); /* volet caché à droite */
   transition: transform 0.6s;
 }
 .nav--open .overlay {
   visibility: visible; /* devient visible */
   opacity: 1; /* non transparent */
+  z-index: 11;
 }
 .nav--open .liens {
   transform: translateX(0);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 .liens li {
   display: flex;
@@ -578,7 +582,6 @@ li {
   .menu,
   .menumarge {
     text-align: center;
-
   }
   .menu ul {
     position: relative;
@@ -587,7 +590,7 @@ li {
     opacity: 0;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.66);
     visibility: hidden;
-    z-index: 100;
+    z-index: 10;
   }
   .aplat li {
     display: block;
