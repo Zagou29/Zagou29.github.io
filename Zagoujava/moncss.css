@@ -460,7 +460,6 @@ li {
   left: 0;
   width: 100vw;
   height: 100vh;
-  /* backdrop-filter: blur(1px); */
   background-color: rgba(249, 229, 118, 0.2);
   visibility: hidden; /* inexistant */
   opacity: 0; /* transparent */
