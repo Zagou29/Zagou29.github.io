@@ -1,5 +1,5 @@
+import { menuGlissant } from "./menuYT.js";
 /* transformer resizer en handler */
-
 function resizer(element, cb) {
   /* appuyer sur l'élément */
   element.addEventListener("pointerdown", (e) => {
@@ -27,5 +27,7 @@ resizer(document.querySelector(".resizer"), (x) => {
 });
 
 /* =============== menu principal smartphone */
-import { menuhamb } from "./menusHamb.js";
-menuhamb();
+/* import du menuYT */
+/*  si menu principal smartphones, gerer le menu glissant */
+  menuGlissant(".hamb", ".menu", ".lienMenuPrinc li");
+

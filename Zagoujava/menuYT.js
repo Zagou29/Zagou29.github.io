@@ -10,9 +10,9 @@ function menuGlissant(bouton, menu, liens) {
         /* fermer le menu */
         menu.classList.remove("nav--open");
         /* Souligner en jaune la video sur la liste */
-        a.classList.add("choisi");
-        /* si Dataset existe, afficher sous titre et video */
+        /* si Dataset existe, afficher sous titre et video et choisi */
         if (a.dataset.id) {
+          a.classList.add("choisi");
           titreMenu.innerHTML = a.innerHTML;
           affVideo(a.dataset.id);
         }
@@ -29,7 +29,8 @@ function menuGlissant(bouton, menu, liens) {
       nav.classList.add("nav--open");
     });
     /* cliquer sur l'overlay ferme le menu */
-    document.querySelector(".overlay").addEventListener("click", () => {
+    
+    document.querySelector(`${menu} .overlay`).addEventListener("click", () => {
       nav.classList.remove("nav--open");
     });
     /* cliquer sur une ancre ferme le menu */

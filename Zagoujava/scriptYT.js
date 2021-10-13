@@ -1,11 +1,6 @@
 /* import du menuYT */
 import { menuGlissant } from "./menuYT.js";
 
-
-/* =============== menu principal smartphone */
-import { menuhamb } from "./menusHamb.js";
-menuhamb();
-
 /* bascule Iframe YT vers image de fond */
 const bascule = document.querySelector(".bascule");
 const fantom = document.querySelector(".videoCadre");
@@ -17,7 +12,8 @@ bascule.addEventListener("click", () => {
     bascule.classList.remove("actif");
   }
 });
-/* ===============gestion des Iframes YT============================= */
-menuGlissant("#hamburger", ".menuGliss", ".liens li");
-/* selection des ancres , puis fonction pour fermer le menu quand on selectionne une ancre */
 
+/*  si menu principal smartphones, gerer le menu glissant */
+menuGlissant(".hamb", ".menu", ".lienMenuPrinc li");
+/* menu pour les  videos des playLists*/
+menuGlissant("#hamburger", ".menuGliss", ".liens li");

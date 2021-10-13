@@ -1,3 +1,4 @@
+import { menuGlissant } from "./menuYT.js";
 /* ------------------------------------------------------- */
 /* dimension des images enfants du DIV */
 let dimZoom = (el) => {
@@ -97,7 +98,6 @@ stockImages.addEventListener("click", (e) => {
   zoom.addEventListener("click", ferme);
   document.addEventListener("keypress", ferme);
 });
-/* =============== menu principal smartphone */
-import { menuhamb } from "./menusHamb.js";
-menuhamb();
-
+/* import du menuYT */
+/*  si menu principal smartphones, gerer le menu glissant */
+menuGlissant(".hamb", ".menu", ".lienMenuPrinc li");
