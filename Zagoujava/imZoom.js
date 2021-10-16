@@ -8,6 +8,8 @@ let dimZoom = (el) => {
   /* ratio de la fenetre */
   const ratioW = window.innerWidth / window.innerHeight;
   /* si on compare les ratios,il faut inverser et definir d'abord la hauteur */
+  el.children[0].style.width = 95 + "vw";
+  el.children[0].style.height = "auto";
   if (ratioW > ratioI) {
     el.children[0].style.width = "auto";
     el.children[0].style.height = 95 + "vh";
@@ -50,13 +52,14 @@ stockImages.addEventListener("click", (e) => {
   let numero = outers.indexOf(e.target.outerHTML);
   /* fonction changer de slide +1 suiv -1 prec */
   let ChangeSlide = (sens) => {
-    numero = numero + sens;
+    numero =numero+ sens;
     if (numero < 0) {
       numero = outers.length - 1;
     }
     if (numero > outers.length - 1) {
       numero = 0;
-    }
+    } 
+   
     document.querySelector(".zoom img").outerHTML =
       outers[numero]; /* remplacer l'image par celle de numero +/-1 */
     dimZoom(zoom); /* retailler l'image */
@@ -71,8 +74,11 @@ stockImages.addEventListener("click", (e) => {
   /* ==============ferme la div Zoom et remet la classe à image */
   let ferme = (e) => {
     e.preventDefault();
-    zoom.parentNode.removeChild(zoom);
-    document.querySelector(".blind").classList.replace("blind", "image");
+    const zoome = document.querySelector(".zoom");
+    if (zoome !== null) {
+      zoome.parentNode.removeChild(zoome);
+      document.querySelector(".blind").classList.replace("blind", "image");
+    }
   };
   /* ==============click fleche Gauche => Précédent */
   prec.addEventListener("click", (e) => {
@@ -94,10 +100,43 @@ stockImages.addEventListener("click", (e) => {
       ChangeSlide(1);
     }
   });
-  /* ============== fermer en cliquant sur Zoomo une touche*/
+  /* ============== fermer en cliquant sur Zoom ou une touche*/
   zoom.addEventListener("click", ferme);
   document.addEventListener("keypress", ferme);
 });
 /* import du menuYT */
 /*  si menu principal smartphones, gerer le menu glissant */
 menuGlissant(".hamb", ".menu", ".lienMenuPrinc li");
+
+const largHautImg = Array.from(document.querySelectorAll(".image img"));
+let dimens = (val) => {
+  document.body.style.setProperty("--largImg", val + "vw");
+  let wid = getComputedStyle(document.body).getPropertyValue("--largImg");
+  largHautImg.forEach((img) => {
+    img.style.width = wid;
+    img.style.height = (parseFloat(wid) / 4) * 3 + "vw";
+  });
+};
+let val = 8;
+document.addEventListener("keydown", (e) => {
+  /* let val = parseFloat(
+    getComputedStyle(document.body).getPropertyValue("--largImg")
+  ); */
+  const valLargeurs = [6, 7, 8, 9, 10, 13, 16, 19, 24, 32, 48, 90];
+  e.preventDefault;
+  if (e.key === "ArrowUp") {
+    val += 1;
+    if (val === 12) {
+      val=11
+      return;
+    }
+  }
+  if (e.key === "ArrowDown") {
+    val -= 1;
+    if (val === -1) {
+      val=0
+      return;
+    }
+  }
+  dimens(valLargeurs[val]);
+});

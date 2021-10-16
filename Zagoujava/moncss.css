@@ -18,6 +18,7 @@
   --glider: 50vw; /* variable pour le glider de la page Amis */
   --imgL: 95vw; /* variable pour la largeur d'image zoom */
   --imgH: auto; /* variable pour la hauteur d'image zoom */
+  --largImg: 24vw;/* variable pour la largeur des images */
 }
 .preload * {
   transition: none !important;
@@ -308,14 +309,14 @@ li {
 .image,
 .blind {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap:wrap;
   align-items: flex-start;
   justify-content: center;
 }
 .image img,
 .blind img {
-  width: 200px;
-  height: 200px;
+  width: var(--largImg);
+  height: calc( var(--largImg) * 3 / 4);
   object-position: left;
   object-fit: cover;
   margin: 1px;
@@ -325,10 +326,9 @@ li {
   margin: auto;
   top: 50%;
   transform: translateY(-50%);
+  z-index:13;
 }
 .zoom img {
-  width: var(--imgL);
-  height: var(--imgH);
   box-shadow: 10px 10px 20px black;
 }
 #precedent,
