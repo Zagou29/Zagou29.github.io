@@ -18,8 +18,13 @@ let dimZoom = (el) => {
 /* ------------------------------------------------------- */
 /* crée une div de classe .zoom et l'insere sur le body */
 let zoomImage = (image) => {
+  /* Si on clique sur l'overlay, rien */
+  if (image === `<div class="overlay"></div>`) return;
+  /* sinon créer la div Zoom, l'image choisie  et rajouter l'overlay*/
   const div = document.createElement("div");
+  const overl = document.querySelector(".image");
   div.classList.add("zoom");
+  overl.classList.add("nav--open");
   div.innerHTML =
     image +
     ` <div id="precedent"><</div>
@@ -41,25 +46,18 @@ tab.forEach((el) => {
 const stockImages = document.querySelector(".image");
 stockImages.addEventListener("click", (e) => {
   e.preventDefault();
-  /* ==============fait disparaitre la Div "image et la remplace par "blind */
-  if (document.querySelector(".image") !== null) {
-    document.querySelector(".image").classList.replace("image", "blind");
-  } else {
-    /* si on a cliqué sur une image (hors de zoom), stop et attente d'un click sur zoom ou une key pour fermer ou prec et suivant pour autres images*/
-    return;
-  }
   /* ==============index de l'image cliquée */
   let numero = outers.indexOf(e.target.outerHTML);
   /* fonction changer de slide +1 suiv -1 prec */
   let ChangeSlide = (sens) => {
-    numero =numero+ sens;
+    numero = numero + sens;
     if (numero < 0) {
       numero = outers.length - 1;
     }
     if (numero > outers.length - 1) {
       numero = 0;
-    } 
-   
+    }
+
     document.querySelector(".zoom img").outerHTML =
       outers[numero]; /* remplacer l'image par celle de numero +/-1 */
     dimZoom(zoom); /* retailler l'image */
@@ -75,10 +73,11 @@ stockImages.addEventListener("click", (e) => {
   let ferme = (e) => {
     e.preventDefault();
     const zoome = document.querySelector(".zoom");
-    if (zoome !== null) {
+    const overl = document.querySelector(".image");
+     if (zoome !== null) {
       zoome.parentNode.removeChild(zoome);
-      document.querySelector(".blind").classList.replace("blind", "image");
-    }
+      overl.classList.remove("nav--open");
+     }
   };
   /* ==============click fleche Gauche => Précédent */
   prec.addEventListener("click", (e) => {
@@ -119,22 +118,20 @@ let dimens = (val) => {
 };
 let val = 8;
 document.addEventListener("keydown", (e) => {
-  /* let val = parseFloat(
-    getComputedStyle(document.body).getPropertyValue("--largImg")
-  ); */
+  
   const valLargeurs = [6, 7, 8, 9, 10, 13, 16, 19, 24, 32, 48, 90];
   e.preventDefault;
   if (e.key === "ArrowUp") {
     val += 1;
     if (val === 12) {
-      val=11
+      val = 11;
       return;
     }
   }
   if (e.key === "ArrowDown") {
     val -= 1;
     if (val === -1) {
-      val=0
+      val = 0;
       return;
     }
   }

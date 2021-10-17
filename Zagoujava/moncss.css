@@ -306,15 +306,13 @@ li {
 }
 /* images de la page d'accueil ----------------*/
 
-.image,
-.blind {
+.image {
   display: flex;
   flex-wrap:wrap;
   align-items: flex-start;
   justify-content: center;
 }
-.image img,
-.blind img {
+.image img{
   width: var(--largImg);
   height: calc( var(--largImg) * 3 / 4);
   object-position: left;
