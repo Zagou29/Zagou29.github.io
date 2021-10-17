@@ -103,22 +103,24 @@ stockImages.addEventListener("click", (e) => {
   zoom.addEventListener("click", ferme);
   document.addEventListener("keypress", ferme);
 });
-/* import du menuYT */
+
 /*  si menu principal smartphones, gerer le menu glissant */
 menuGlissant(".hamb", ".menu", ".lienMenuPrinc li");
 
+/* =========Zommer ou dezoomer les images via les fleches haut et bas*/
 const largHautImg = Array.from(document.querySelectorAll(".image img"));
+/* dimensionner larg et haut des images, qui ensuite se wrappent en auto  */
 let dimens = (val) => {
   document.body.style.setProperty("--largImg", val + "vw");
   let wid = getComputedStyle(document.body).getPropertyValue("--largImg");
   largHautImg.forEach((img) => {
     img.style.width = wid;
-    img.style.height = (parseFloat(wid) / 4) * 3 + "vw";
+    img.style.height = (parseFloat(wid) / 4 * 3) + "vw";
   });
 };
 let val = 8;
 document.addEventListener("keydown", (e) => {
-  
+  /* valeurs de largeur des images qui coccupent le mieux l'ecran */
   const valLargeurs = [6, 7, 8, 9, 10, 13, 16, 19, 24, 32, 48, 90];
   e.preventDefault;
   if (e.key === "ArrowUp") {
