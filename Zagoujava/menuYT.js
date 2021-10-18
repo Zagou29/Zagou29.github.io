@@ -27,11 +27,15 @@ function menuGlissant(bouton, menu, liens) {
   document.addEventListener("DOMContentLoaded", () => {
     bout.addEventListener("click", () => {
       nav.classList.add("nav--open");
+      bout.classList.add("actif")
     });
     /* cliquer sur l'overlay ferme le menu */
     
     document.querySelector(`${menu} .overlay`).addEventListener("click", () => {
       nav.classList.remove("nav--open");
+      /* si on a dejà choisi une video, le bouton reste actif, sinon non */
+      if(Array.from(document.querySelectorAll(".choisi")).length ===0)
+      {bout.classList.remove("actif")}
     });
     /* cliquer sur une ancre ferme le menu */
     fermerAncres(nav);
