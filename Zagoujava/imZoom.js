@@ -24,30 +24,56 @@ let zoomImage = (image) => {
   const div = document.createElement("div");
   const overl = document.querySelector(".image");
   div.classList.add("zoom");
+  /* rend visible overlay pour bloquer les images du dessous */
   overl.classList.add("nav--open");
+  /* insere l'image et les fleches */
   div.innerHTML =
     image +
-    ` <div id="precedent"><</div>
-      <div id="suivant">></div>`;
-  /* si on clique sur le bord du container image, on targette sur <aside> => stop */
-  dimZoom(div); /* calculer les dimensions du zoom */
-  document.body.appendChild(div); /* afficher le Zoom */
+    ` <div class=" fleches precedent"><</div>
+      <div class=" fleches suivant">></div>`;
+  /* calculer les dimensions du zoom */
+  dimZoom(div);
+  /* afficher le Zoom */
+  document.body.appendChild(div);
 };
 /* -------------------------------------------------------- */
-/* Tableau des images img */
-const tab = document.querySelectorAll(".image img");
+
+const stockImages = document.querySelector(".image"); /* container des images */
+const tab =
+  document.querySelectorAll(".image img"); /* tableau des images img */
+
 /* tableau des outerHTML des images */
 const outers = [];
 tab.forEach((el) => {
   outers.push(el.outerHTML);
 });
-/* ---------------------------------------------------------- */
+
 /* si on pointe sur le container "image", on zoome, et si on releve le pointer on arrete le zoom */
-const stockImages = document.querySelector(".image");
 stockImages.addEventListener("click", (e) => {
   e.preventDefault();
   /* ==============index de l'image cliquée */
   let numero = outers.indexOf(e.target.outerHTML);
+  /* ==============zoomer l'image cliquée */
+  zoomImage(
+    e.target.outerHTML
+  ); /* crée les div Zoom avec l'image cliquee et les fleches */
+  const zoom = document.querySelector(".zoom"); /* le container zoom */
+  const fleches =
+    document.querySelectorAll(
+      ".fleches"
+    ); /* les deux div des fleches prec et suiv */
+  /* ==============ferme la div Zoom et remet la classe à image */
+  let ferme = (e) => {
+    e.preventDefault();
+    const zoome = document.querySelector(".zoom");
+    const overl = document.querySelector(".image");
+    if (zoome === null) {
+      return;
+    }
+    zoome.parentNode.removeChild(zoome);
+    overl.classList.remove("nav--open");
+  };
+
   /* fonction changer de slide +1 suiv -1 prec */
   let ChangeSlide = (sens) => {
     numero = numero + sens;
@@ -57,40 +83,25 @@ stockImages.addEventListener("click", (e) => {
     if (numero > outers.length - 1) {
       numero = 0;
     }
-
     document.querySelector(".zoom img").outerHTML =
-      outers[numero]; /* remplacer l'image par celle de numero +/-1 */
+      outers[
+        numero
+      ]; /* remplace l'image en cours par la nouvelle choisie + ou - */
     dimZoom(zoom); /* retailler l'image */
   };
-  /* ==============zoomer l'image cliquée */
-  zoomImage(e.target.outerHTML);
-
-  const prec = document.getElementById("precedent");
-  const suiv = document.getElementById("suivant");
-  const zoom = document.querySelector(".zoom");
-
-  /* ==============ferme la div Zoom et remet la classe à image */
-  let ferme = (e) => {
-    e.preventDefault();
-    const zoome = document.querySelector(".zoom");
-    const overl = document.querySelector(".image");
-     if (zoome !== null) {
-      zoome.parentNode.removeChild(zoome);
-      overl.classList.remove("nav--open");
-     }
-  };
-  /* ==============click fleche Gauche => Précédent */
-  prec.addEventListener("click", (e) => {
-    ChangeSlide(-1);
-    /* l'event reste sur la div prec, et ne remonte pas dans "blind" */
-    e.stopPropagation();
+  /* ===== cliquer sur les fleches prec  ou suiv change les images */
+  fleches.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      if (el === fleches[0]) {
+        ChangeSlide(-1);
+        e.stopPropagation();
+      } else {
+        ChangeSlide(1);
+        e.stopPropagation();
+      }
+    });
+    /* ===idem sur touches droite et gauche */
   });
-  /* ==============click fleche droite => Suivant */
-  suiv.addEventListener("click", (e) => {
-    ChangeSlide(1);
-    e.stopPropagation();
-  });
-  /* ==============fleche droite =>Prec, fleche gauche=>suiv */
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") {
       ChangeSlide(-1);
@@ -104,18 +115,13 @@ stockImages.addEventListener("click", (e) => {
   document.addEventListener("keypress", ferme);
 });
 
-/*  si menu principal smartphones, gerer le menu glissant */
-menuGlissant(".hamb", ".menu", ".lienMenuPrinc li");
-
 /* =========Zommer ou dezoomer les images via les fleches haut et bas*/
 const largHautImg = Array.from(document.querySelectorAll(".image img"));
 /* dimensionner larg et haut des images, qui ensuite se wrappent en auto  */
-let dimens = (val) => {
-  document.body.style.setProperty("--largImg", val + "vw");
-  let wid = getComputedStyle(document.body).getPropertyValue("--largImg");
+let dimens = (larg) => {
   largHautImg.forEach((img) => {
-    img.style.width = wid;
-    img.style.height = (parseFloat(wid) / 4 * 3) + "vw";
+    img.style.width = larg + "vw";
+    img.style.height = (larg / 4) * 3 + "vw";
   });
 };
 let val = 8;
@@ -139,3 +145,6 @@ document.addEventListener("keydown", (e) => {
   }
   dimens(valLargeurs[val]);
 });
+
+/*  si menu principal smartphones, gerer le menu glissant */
+menuGlissant(".hamb", ".menu", ".lienMenuPrinc li");
