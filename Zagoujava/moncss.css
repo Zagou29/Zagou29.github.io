@@ -322,8 +322,9 @@ li {
 .zoom {
   position: fixed;
   margin: auto;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 2vh;
+  left:50%;
+  transform:translateX(-50%);
   z-index:13;
 }
 .zoom img {
