@@ -2,17 +2,21 @@ import { menuGlissant } from "./menuYT.js";
 /* ------------------------------------------------------- */
 /* dimension des images enfants du DIV */
 let dimZoom = (el) => {
-  const h = el.children[0].naturalHeight;
-  const l = el.children[0].naturalWidth;
+  const image = el.children[0];
+  const h = image.naturalHeight;
+  const l = image.naturalWidth;
   const ratioI = l / h;
   /* ratio de la fenetre */
   const ratioW = window.innerWidth / window.innerHeight;
   /* si on compare les ratios,il faut inverser et definir d'abord la hauteur */
-  el.children[0].style.width = 95 + "vw";
-  el.children[0].style.height = "auto";
+  image.style.width = 95 + "vw";
+  image.style.height = "auto";
+  const hautIm = (window.innerWidth * 95) / 100 / ratioI;
+  el.style.top = (window.innerHeight - hautIm) / 2 + "px";
   if (ratioW > ratioI) {
-    el.children[0].style.width = "auto";
-    el.children[0].style.height = 95 + "vh";
+    image.style.width = "auto";
+    image.style.height = 95 + "vh";
+    el.style.top = 2.5 + "vh";
   }
 };
 /* ------------------------------------------------------- */
