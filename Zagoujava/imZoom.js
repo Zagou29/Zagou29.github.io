@@ -11,12 +11,9 @@ let dimZoom = (el) => {
   /* si on compare les ratios,il faut inverser et definir d'abord la hauteur */
   image.style.width = 95 + "vw";
   image.style.height = "auto";
-  const hautIm = (window.innerWidth * 95) / 100 / ratioI;
-  el.style.top = (window.innerHeight - hautIm) / 2 + "px";
   if (ratioW > ratioI) {
     image.style.width = "auto";
     image.style.height = 95 + "vh";
-    el.style.top = 2.5 + "vh";
   }
 };
 /* ------------------------------------------------------- */
