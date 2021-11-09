@@ -489,7 +489,7 @@ li {
 .liens li {
   display: flex;
   color: #666666;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 14px;
   text-decoration: none;
   padding: 5px 10px;
@@ -613,3 +613,4 @@ li {
     padding-right: 1rem;
   }
 }
+
