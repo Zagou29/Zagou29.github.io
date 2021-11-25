@@ -66,11 +66,11 @@
 
 /* fonds de pages */
 .imvoyD {
-  background: url("/Zagoujava/Images/USA.jpg") left center;
+  background: url("/Zagoujava/Images/USA.jpg") left center/cover;
   background-repeat: no-repeat;
 }
 .imvoyV {
-  background: url("/Zagoujava/Images/Grece.jpg") left;
+  background: url("/Zagoujava/Images/Grece.jpg") left/cover;
   background-repeat: no-repeat;
 }
 .imarzD {
@@ -90,11 +90,11 @@
   background-repeat: no-repeat;
 }
 .imavantD {
-  background: url("/Zagoujava/Images/Laber.jpg") bottom;
+  background: url("/Zagoujava/Images/Laber.jpg") bottom/cover;
   background-repeat: no-repeat;
 }
 .imavantV {
-  background: url("/Zagoujava/Images/LesAnges.jpg") center top;
+  background: url("/Zagoujava/Images/LesAnges.jpg") center top/cover;
   background-repeat: no-repeat;
 }
 /* couleurs de fond ou de barre */
