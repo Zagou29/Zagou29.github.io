@@ -276,7 +276,6 @@ li {
 .blanc li a {
   color: white;
   text-shadow: 1px 1px 1px black;
-  /* margin-left: 1rem; */
 }
 .menu a:hover,
 .encours {
@@ -591,11 +590,15 @@ li {
     background-color: hsla(0, 100%, 0%, 0.7);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.625);
     border-radius: 5px;
-    transform: translateX(210px); /* volet caché à droite */
+    transform: translateX(100%); /* volet caché à droite */
     transition: transform 0.6s;
   }
   .aplat li {
     display: block;
+  }
+  .aplat li a {
+    color: white;
+    text-shadow: 1px 1px 1px black;
   }
   .menumarge li {
     display: inline-block;
