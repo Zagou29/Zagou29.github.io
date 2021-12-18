@@ -1,7 +1,7 @@
 *,
 ::before,
 ::after {
- margin: 0;
+  margin: 0;
   padding: 0;
   font-family: "Bubbler One", "Open Sans Condensed", "Gruppo", "Source Sans Pro",
     "Pompiere", sans-serif;
@@ -18,9 +18,9 @@
   --glider: 50vw; /* variable pour le glider de la page Amis */
   --imgL: 95vw; /* variable pour la largeur d'image zoom */
   --imgH: auto; /* variable pour la hauteur d'image zoom */
-  --largImg: 24vw;/* variable pour la largeur des images */
+  --largImg: 24vw; /* variable pour la largeur des images */
 }
-.zeromarge{
+.zeromarge {
   margin: 0;
 }
 .preload * {
@@ -99,23 +99,23 @@
 }
 /* couleurs de fond ou de barre */
 .bleu {
-  background-color: rgba(180, 221, 238, 0.7);
+  background-color: hsla(198, 63%, 82%, 0.7);
   box-shadow: 0 2px 10px gray;
   z-index: 1;
 }
 .jaune {
-  background-color: rgba(248, 231, 165, 0.7);
-  box-shadow: 0 2px 10px gray;
+  background-color: hsla(48, 86%, 81%, 0.7);
+  box-shadow: 0 2px 10px hsl(0, 0%, 50%);
   z-index: 1;
 }
 .marron {
-  background-color: rgba(243, 160, 100, 0.582);
+  background-color: hsla(25, 86%, 67%, 0.582);
 }
 .gris {
-  background-color: rgba(187, 186, 186, 0.5);
+  background-color: hsla(0, 1%, 73%, 0.5);
 }
 .beige {
-  background-color: cornsilk;
+  background-color: hsl(48, 100%, 93%);
 }
 /* en tete avec images panoramas et nom du Blog */
 .entete {
@@ -124,7 +124,7 @@
   position: relative;
 }
 .ombre {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.788);
+  box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.788);
 }
 .fam {
   background: url("/Zagoujava/Panoramas/Dunes.jpg") top / cover;
@@ -178,7 +178,7 @@
   right: 4vw;
   bottom: 2vh;
   display: none;
-  background-color: rgba(245, 245, 245, 0.8);
+  background-color: hsla(0, 0%, 96%, 0.8);
 }
 /* meny sticky pour la page d'acceuil en ordi et Photos/ Amis en smartphone */
 .fixmenu {
@@ -234,7 +234,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.479);
+  box-shadow: 15px 15px 20px hsla(0, 0%, 0%, 0.479);
 }
 /* sidebars menus */
 .sideg {
@@ -276,6 +276,7 @@ li {
 .blanc li a {
   color: white;
   text-shadow: 1px 1px 1px black;
+  /* margin-left: 1rem; */
 }
 .menu a:hover,
 .encours {
@@ -311,13 +312,13 @@ li {
 
 .image {
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
 }
-.image img{
+.image img {
   width: var(--largImg);
-  height: calc( var(--largImg) * 3 / 4);
+  height: calc(var(--largImg) * 3 / 4);
   object-position: left;
   object-fit: cover;
   margin: 1px;
@@ -326,9 +327,9 @@ li {
   position: fixed;
   margin: auto;
   top: 50%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  z-index:13;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 13;
 }
 .zoom img {
   box-shadow: 10px 10px 20px black;
@@ -459,7 +460,7 @@ li {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(249, 229, 118, 0.2);
+  background-color: hsla(0, 100%, 00%, 0.3);
   visibility: hidden; /* inexistant */
   opacity: 0; /* transparent */
   transition: opacity 0.6s;
@@ -467,17 +468,17 @@ li {
 .liens {
   position: fixed;
   top: 17vh;
-  right: 20px;
+  right: 0;
   padding: 0;
   z-index: 12;
   height: auto;
   max-height: var(--hautBox);
   width: auto;
   overflow-y: scroll;
-  background-color: #fff;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.625);
+  background-color: rgba(0, 0, 0, 0.85);
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.625);
   border-radius: 5px;
-  transform: translateX(210px); /* volet caché à droite */
+  transform: translateX(100%); /* volet caché à droite */
   transition: transform 0.6s;
 }
 .nav--open .overlay {
@@ -491,19 +492,17 @@ li {
 }
 .liens li {
   display: flex;
-  color: #666666;
+  color: hsl(0, 0%, 100%);
   /* font-weight: bold; */
   font-size: 14px;
   text-decoration: none;
   padding: 5px 10px;
-  transition: background-color  0.2s ease;
+  transition: background-color 0.2s ease;
 }
-.liens li:hover {
-  background-color: blanchedalmond;
-  cursor: pointer;
-}
+.liens li:hover,
 .choisi {
-  background-color: gold;
+  background-color: hsl(0, 0%, 40%, 0.5);
+  cursor: pointer;
 }
 /* fixer le footer de la page amis pour derouler les deux bandeaux ct et sd */
 .envelop {
@@ -538,7 +537,7 @@ li {
 
 /*----------------------------------*/
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 1100px) {
   .page {
     grid-template-columns: auto;
     grid-template-rows: var(--hautEntete) 0 7vh auto var(--hautPiedPage);
@@ -582,14 +581,14 @@ li {
   .lienMenuPrinc {
     position: fixed;
     top: 17vh;
-    right: 20px;
+    right: 0;
     padding: 0;
     z-index: 12;
     height: auto;
     max-height: var(--hautBox);
     width: auto;
     overflow-y: scroll;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: hsla(0, 100%, 0%, 0.7);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.625);
     border-radius: 5px;
     transform: translateX(210px); /* volet caché à droite */
@@ -616,4 +615,3 @@ li {
     padding-right: 1rem;
   }
 }
-
