@@ -3,9 +3,7 @@ import { menuGlissant } from "./menuYT.js";
 /* dimension des images enfants du DIV */
 let dimZoom = (el) => {
   const image = el.children[0];
-  const h = image.naturalHeight;
-  const l = image.naturalWidth;
-  const ratioI = l / h;
+  const ratioI = image.naturalWidth / image.naturalHeight;
   /* ratio de la fenetre */
   const ratioW = window.innerWidth / window.innerHeight;
   /* si on compare les ratios,il faut inverser et definir d'abord la hauteur */
