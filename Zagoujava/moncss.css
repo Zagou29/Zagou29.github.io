@@ -314,13 +314,14 @@ li {
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
+  gap:1px;
 }
 .image img {
   width: var(--largImg);
   height: calc(var(--largImg) * 3 / 4);
   object-position: left;
   object-fit: cover;
-  margin: 1px;
+
 }
 .zoom {
   position: fixed;
