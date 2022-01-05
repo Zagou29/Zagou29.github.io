@@ -53,14 +53,11 @@ stockImages.addEventListener("click", (e) => {
   /* ==============index de l'image cliquée */
   let numero = outers.indexOf(e.target.outerHTML);
   /* ==============zoomer l'image cliquée */
-  zoomImage(
-    e.target.outerHTML
-  ); /* crée les div Zoom avec l'image cliquee et les fleches */
+  zoomImage(e.target.outerHTML);
+  /* crée les div Zoom avec l'image cliquee et les fleches */
   const zoom = document.querySelector(".zoom"); /* le container zoom */
-  const fleches =
-    document.querySelectorAll(
-      ".fleches"
-    ); /* les deux div des fleches prec et suiv */
+  const fleches = document.querySelectorAll(".fleches");
+  /* les deux div des fleches prec et suiv */
   /* ==============ferme la div Zoom et remet la classe à image */
   let ferme = (e) => {
     e.preventDefault();
@@ -82,10 +79,8 @@ stockImages.addEventListener("click", (e) => {
     if (numero > outers.length - 1) {
       numero = 0;
     }
-    document.querySelector(".zoom img").outerHTML =
-      outers[
-        numero
-      ]; /* remplace l'image en cours par la nouvelle choisie + ou - */
+    document.querySelector(".zoom img").outerHTML = outers[numero];
+    /* remplace l'image en cours par la nouvelle choisie + ou - */
     dimZoom(zoom); /* retailler l'image */
   };
   /* ===== cliquer sur les fleches prec  ou suiv change les images */
@@ -93,7 +88,8 @@ stockImages.addEventListener("click", (e) => {
     el.addEventListener("click", (e) => {
       if (el === fleches[0]) {
         ChangeSlide(-1);
-        e.stopPropagation();
+        e.stopPropagation(); 
+        // si on stoppe pas, l'event remonte à Zoom.addEventListene("click",ferme) par bubbling
       } else {
         ChangeSlide(1);
         e.stopPropagation();
