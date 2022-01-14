@@ -88,7 +88,7 @@ stockImages.addEventListener("click", (e) => {
     el.addEventListener("click", (e) => {
       if (el === fleches[0]) {
         ChangeSlide(-1);
-        e.stopPropagation(); 
+        e.stopPropagation();
         // si on stoppe pas, l'event remonte à Zoom.addEventListene("click",ferme) par bubbling
       } else {
         ChangeSlide(1);
@@ -98,6 +98,7 @@ stockImages.addEventListener("click", (e) => {
     /* ===idem sur touches droite et gauche */
   });
   document.addEventListener("keydown", (e) => {
+    e.preventDefault;
     if (e.key === "ArrowLeft") {
       ChangeSlide(-1);
     }
@@ -110,35 +111,25 @@ stockImages.addEventListener("click", (e) => {
   document.addEventListener("keypress", ferme);
 });
 
-/* =========Zommer ou dezoomer les images via les fleches haut et bas*/
-const largHautImg = Array.from(document.querySelectorAll(".image img"));
-/* dimensionner larg et haut des images, qui ensuite se wrappent en auto  */
-let dimens = (larg) => {
-  largHautImg.forEach((img) => {
-    img.style.width = larg + "vw";
-    img.style.height = (larg / 4) * 3 + "vw";
-  });
-};
-let val = 8;
+/* =========Zommer ou dezoomer les images via une touche*/
+let val = 3;
+const image = document.querySelector(".image");
+const larg = [5, 10, 15, 20, 25, 35, 50];
 document.addEventListener("keydown", (e) => {
-  /* valeurs de largeur des images qui coccupent le mieux l'ecran */
-  const valLargeurs = [6, 7, 8, 9, 10, 13, 16, 19, 24, 32, 48, 90];
   e.preventDefault;
   if (e.key === "ArrowUp") {
     val += 1;
-    if (val === 12) {
-      val = 11;
-      return;
-    }
+    if (val === 7) val = 0;
   }
   if (e.key === "ArrowDown") {
-    val -= 1;
-    if (val === -1) {
-      val = 0;
-      return;
-    }
+    val -=1;
+    if (val === -1) val = 6;
   }
-  dimens(valLargeurs[val]);
+  console.log(val)
+  image.setAttribute(
+    "style",
+    `grid-template-columns : repeat(auto-fit, minmax(${larg[val]}rem, 1fr));`
+  );
 });
 
 /*  si menu principal smartphones, gerer le menu glissant */
