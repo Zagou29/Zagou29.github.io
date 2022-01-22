@@ -30,7 +30,7 @@
 /* format du grilles pour body,header, main, aside, footer */
 .pageacc {
   display: grid;
-  height: 100vh;
+  height: auto;
   grid-template-columns: auto;
   grid-template-rows: var(--hautEntete) 2rem auto auto var(--hautPiedPage);
   grid-template-areas:
@@ -101,7 +101,7 @@
 .bleu {
   background-color: hsla(198, 63%, 82%, 0.7);
   box-shadow: 0 2px 10px gray;
-  z-index: 1;
+  /* z-index: 1; */
 }
 .jaune {
   background-color: hsla(48, 86%, 81%, 0.7);
@@ -313,52 +313,93 @@ li {
   display: grid;
   gap: 1px;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  overflow: scroll;
+}
+.image_mod {
+  width: 100vw;
+  height: 100vh;
+  gap: 0px;
+  grid-template-columns: repeat(100, 1fr);
+  scroll-snap-type: x mandatory;
+  align-items: center;
 }
 .image img {
   width: 100%;
-  object-position: center;
+  object-position: top;
   object-fit: cover;
   aspect-ratio: 16/9;
 }
-.zoom {
-  position: fixed;
-  margin: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 13;
+.image_mod img {
+  width: inherit;
+  object-fit: contain;
+  object-position: center;
+  scroll-snap-align: start;
 }
-.zoom img {
-  box-shadow: 10px 10px 20px black;
+.fullscreen {
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+  height: 10rem;
+  bottom: 0;
+  right: 0;
+  color: rgb(221, 221, 221);
+  text-shadow: 1px 1px 1px black;
+  opacity: 1;
 }
-.precedent,
-.suivant {
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-  display: flex;
-  opacity: 0.5;
+.fullscreen > h1 {
+  font-size: 2rem;
+  font-family: "gruppo";
+  text-align: center;
+}
+.fullscreen > * {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+.fleches {
+  display: none;
+  position: absolute;
+  align-items: center;
   top: 0;
   height: 100%;
-  position: absolute;
-  font-size: 70px;
-  color: rgba(220, 220, 220, 1);
-  background-color: rgba(0, 0, 0, 0.1);
+  width: 7rem;
   padding: 10px;
   z-index: 10;
-  align-items: center;
+  color: grey;
+  cursor: pointer;
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
 }
-
+.fleches > * {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+.material-icons-outlined {
+  font-size: 4rem;
+}
+.show_grid {
+  display: grid;
+}
 .precedent {
   left: 0;
+  justify-content: flex-start;
 }
-
 .suivant {
+  justify-content: flex-end;
   right: 0;
 }
+.prec,
+.suiv {
+  display: none;
+}
+.show {
+  display: block;
+}
 
-.precedent:hover,
-.suivant:hover {
-  background-color: rgba(0, 0, 0, 0.4);
+.fleches:hover {
+  font-weight: bolder;
+  text-shadow: 2px 2px 2px black;
   opacity: 1;
   z-index: 10;
 }
@@ -366,10 +407,17 @@ li {
 /* polsize des textes */
 .justscroll {
   text-align: justify;
-  /* background-color: blanchedalmond; */
-  border: 2px solid rgba(248, 231, 165, 0.829);
+  background-color: blanchedalmond;
   overflow: scroll;
   margin: 0; /* poursupprimer la bande blanche entre blog et central des pages amis et Index */
+}
+.just_mod {
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  top: 0;
+  left: 0;
+  background-color: black;
 }
 .grab {
   cursor: grab;
@@ -390,14 +438,13 @@ li {
 .relat {
   display: grid;
 }
-.relat > a{
+.relat > a {
   display: grid;
   text-decoration: none;
 }
-.relat >a >* {
+.relat > a > * {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-
 }
 .blogs {
   width: 100%;
@@ -429,6 +476,10 @@ li {
   align-items: center;
   flex-direction: row;
 }
+.pied_sous,
+.fixmenu_sous {
+  z-index: -1;
+}
 .textpd {
   text-align: center;
   flex: 1;
@@ -450,9 +501,9 @@ li {
 /* centre flexible pour les icones des blogs */
 .flexy {
   display: grid;
-  width:100%;
-  height:100%;
-  gap:0.5rem;
+  width: 100%;
+  height: 100%;
+  gap: 0.5rem;
   grid-template-columns: repeat(auto-fit, minmax(12.2rem, 1fr));
   /* justify-content: center;
   flex-wrap: wrap;
@@ -514,6 +565,7 @@ li {
 /* fixer le footer de la page amis pour derouler les deux bandeaux ct et sd */
 .envelop {
   height: 71vh;
+  border: 2px solid rgba(248, 231, 165, 0.829);
 }
 /* -------------resizer------------ */
 .resizer {
@@ -622,10 +674,13 @@ li {
     z-index: 9;
     box-shadow: 0 2px 10px gray;
   }
+  .entete_sous {
+    z-index: -1;
+  }
   .sstitre {
     padding-right: 1rem;
   }
-  .image {
+  /* .image {
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-  }
+  } */
 }

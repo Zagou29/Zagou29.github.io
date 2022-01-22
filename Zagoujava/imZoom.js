@@ -1,136 +1,120 @@
 import { menuGlissant } from "./menuYT.js";
-/* ------------------------------------------------------- */
-/* dimension des images enfants du DIV */
-let dimZoom = (el) => {
-  const image = el.children[0];
-  const ratioI = image.naturalWidth / image.naturalHeight;
-  /* ratio de la fenetre */
-  const ratioW = window.innerWidth / window.innerHeight;
-  /* si on compare les ratios,il faut inverser et definir d'abord la hauteur */
-  image.style.width = 95 + "vw";
-  image.style.height = "auto";
-  if (ratioW > ratioI) {
-    image.style.width = "auto";
-    image.style.height = 95 + "vh";
-  }
-};
-/* ------------------------------------------------------- */
-/* crée une div de classe .zoom et l'insere sur le body */
-let zoomImage = (image) => {
-  /* Si on clique sur l'overlay, rien */
-  if (image === `<div class="overlay"></div>`) return;
-  /* sinon créer la div Zoom, l'image choisie  et rajouter l'overlay*/
-  const div = document.createElement("div");
-  const overl = document.querySelector(".image");
-  div.classList.add("zoom");
-  /* rend visible overlay pour bloquer les images du dessous */
-  overl.classList.add("nav--open");
-  /* insere l'image et les fleches */
-  div.innerHTML =
-    image +
-    ` <div class=" fleches precedent"><</div>
-      <div class=" fleches suivant">></div>`;
-  /* calculer les dimensions du zoom */
-  dimZoom(div);
-  /* afficher le Zoom */
-  document.body.appendChild(div);
-};
 /* -------------------------------------------------------- */
+const fix_men = document.querySelector(".fixmenu");
+const entete = document.querySelector(".entete");
+const fleches = document.querySelectorAll(".fleches");
+const full = document.querySelector(".fullscreen");
+const pied = document.querySelector(".pied");
+const fix_fond = document.querySelector(".sided");
+const boiteImg = document.querySelector(".image");
+const tab = document.querySelectorAll(".image img");
+const stop_prec = document.querySelector(".prec");
+const stop_suiv= document.querySelector(".suiv");
+/* --------------------------------------------- */
+/* Zoom quand on clicke sur une image en changeant les classes */
+let zoome = false;
+const zoom = (e) => {
+  zoome = zoome === true ? false : true;
+  /* revenir en mode normal si on est en fullscreen +retour iamges */
+  stop_fullScreen();
+  /* passer les bandeaux entete, menu et footer en dessous */
+  fix_men.classList.toggle("fixmenu_sous");
+  entete.classList.toggle("entete_sous");
+  pied.classList.toggle("pied_sous");
+  fleches.forEach((fl) => fl.classList.toggle("show_grid"));
+  /* montrer les fleche f pour fullscreen */
+  const alert = () => full.classList.remove("show_grid");
+  if (zoome) {
+    full.classList.add("show_grid");
+    setTimeout(alert, 5000);
+  }
 
-const stockImages = document.querySelector(".image"); /* container des images */
-const tab =
-  document.querySelectorAll(".image img"); /* tableau des images img */
-
-/* tableau des outerHTML des images */
-const outers = [];
-tab.forEach((el) => {
-  outers.push(el.outerHTML);
-});
-
-/* si on pointe sur le container "image", on zoome, et si on releve le pointer on arrete le zoom */
-stockImages.addEventListener("click", (e) => {
-  e.preventDefault();
-  /* ==============index de l'image cliquée */
-  let numero = outers.indexOf(e.target.outerHTML);
-  /* ==============zoomer l'image cliquée */
-  zoomImage(e.target.outerHTML);
-  /* crée les div Zoom avec l'image cliquee et les fleches */
-  const zoom = document.querySelector(".zoom"); /* le container zoom */
-  const fleches = document.querySelectorAll(".fleches");
-  /* les deux div des fleches prec et suiv */
-  /* ==============ferme la div Zoom et remet la classe à image */
-  let ferme = (e) => {
-    e.preventDefault();
-    const zoome = document.querySelector(".zoom");
-    const overl = document.querySelector(".image");
-    if (zoome === null) {
-      return;
+  /* ramener toutes les images en plein ecran et definelemnt horizontal */
+  boiteImg.classList.toggle("image_mod");
+  fix_fond.classList.toggle("just_mod");
+  /* pointer sur l'image sur laquelle on a cliqué */
+  boiteImg.scrollTo({
+    left: e.target.x,
+  });
+  /* rajouter le stop au debut et la la fin des images */
+  boiteImg.addEventListener("scroll", () => {
+    if (boiteImg.scrollLeft === 0) stop_prec.classList.add("show");
+    else {
+      stop_prec.classList.remove("show");
     }
-    zoome.parentNode.removeChild(zoome);
-    overl.classList.remove("nav--open");
-  };
+    if (boiteImg.scrollLeft === (boiteImg.scrollWidth-boiteImg.offsetWidth)) stop_suiv.classList.add("show");
+    else {
+      stop_suiv.classList.remove("show");
+    }
+    
+  });
+};
 
-  /* fonction changer de slide +1 suiv -1 prec */
-  let ChangeSlide = (sens) => {
-    numero = numero + sens;
-    if (numero < 0) {
-      numero = outers.length - 1;
-    }
-    if (numero > outers.length - 1) {
-      numero = 0;
-    }
-    document.querySelector(".zoom img").outerHTML = outers[numero];
-    /* remplace l'image en cours par la nouvelle choisie + ou - */
-    dimZoom(zoom); /* retailler l'image */
-  };
-  /* ===== cliquer sur les fleches prec  ou suiv change les images */
+/* --------------------------------------------- */
+/* cliquer sur av et ar pour passer d'une image a une autre à la souris*/
+const av_ar = () => {
   fleches.forEach((el) => {
     el.addEventListener("click", (e) => {
       if (el === fleches[0]) {
-        ChangeSlide(-1);
-        e.stopPropagation();
-        // si on stoppe pas, l'event remonte à Zoom.addEventListene("click",ferme) par bubbling
+        /* aller à position gauche de l'image- largeur de l'image*/
+        boiteImg.scrollTo({
+          left: boiteImg.scrollLeft - boiteImg.offsetWidth,
+        });
       } else {
-        ChangeSlide(1);
-        e.stopPropagation();
+        boiteImg.scrollTo({
+          left: boiteImg.scrollLeft + boiteImg.offsetWidth,
+        });
       }
+      e.stopPropagation();
     });
-    /* ===idem sur touches droite et gauche */
   });
-  document.addEventListener("keydown", (e) => {
-    e.preventDefault;
-    if (e.key === "ArrowLeft") {
-      ChangeSlide(-1);
-    }
-    if (e.key === "ArrowRight") {
-      ChangeSlide(1);
-    }
-  });
-  /* ============== fermer en cliquant sur Zoom ou une touche*/
-  zoom.addEventListener("click", ferme);
-  document.addEventListener("keypress", ferme);
-});
+};
 
-/* =========Zommer ou dezoomer les images via une touche*/
-let val = 3;
-const image = document.querySelector(".image");
-const larg = [5, 10, 15, 20, 25, 35, 50];
-document.addEventListener("keydown", (e) => {
-  e.preventDefault;
-  if (e.key === "ArrowUp") {
-    val += 1;
-    if (val === 7) val = 0;
+/* ------------------------------------------ */
+const go_fullScreen = (elem) => {
+  let not_fs =
+    !document.fullscreenElement &&
+    !document.mozFullScreen &&
+    !document.webkitIsFullScreen &&
+    !document.msFullscreenElement;
+  if (not_fs) {
+    if (elem.requestFullscreen) elem.requestFullscreen();
+    else if (elem.mozRequestFullScreen) elem.mozRequestFullScreen();
+    else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
+    else if (elem.msRequestFullscreen) elem.msRequestFullscreen();
+  } else stop_fullScreen();
+};
+
+const stop_fullScreen = () => {
+  let fs =
+    document.fullscreenElement ||
+    document.mozFullScreen ||
+    document.webkitIsFullScreen ||
+    document.msFullscreenElement;
+  if (fs) {
+    if (document.exitFullscreen) document.exitFullscreen();
+    else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+    else if (document.msExitFullscreen) document.msExitFullscreen();
   }
-  if (e.key === "ArrowDown") {
-    val -=1;
-    if (val === -1) val = 6;
-  }
-  console.log(val)
-  image.setAttribute(
-    "style",
-    `grid-template-columns : repeat(auto-fit, minmax(${larg[val]}rem, 1fr));`
-  );
+};
+
+const fulls = () => {
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "f") go_fullScreen(fix_fond);
+    e.stopPropagation;
+  });
+};
+
+/* ------------------------------------------ */
+/*  quand on clique sur une image, zoomer , utiliser les fleches et fullscreen*/
+tab.forEach((img) => {
+  img.addEventListener("click", (e) => {
+    zoom(e);
+  });
 });
+av_ar();
+fulls();
 
 /*  si menu principal smartphones, gerer le menu glissant */
 menuGlissant(".hamb", ".menu", ".lienMenuPrinc li");
