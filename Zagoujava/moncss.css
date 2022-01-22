@@ -564,8 +564,7 @@ li {
 }
 /* fixer le footer de la page amis pour derouler les deux bandeaux ct et sd */
 .envelop {
-  height: 71vh;
-  border: 2px solid rgba(248, 231, 165, 0.829);
+  border: 2px solid rgba(252, 212, 54, 0.829);
 }
 /* -------------resizer------------ */
 .resizer {
