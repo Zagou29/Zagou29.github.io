@@ -55,13 +55,13 @@
   display: grid;
   height: 100vh;
   --gliderClamped: clamp(200px, var(--glider), 80vw);
-  grid-template-columns: var(--gliderClamped) 1fr;
+  grid-template-columns: var(--gliderClamped) 5px 1fr;
   grid-template-rows: var(--hautEntete) 2rem auto var(--hautPiedPage);
   grid-template-areas:
-    "hd hd"
-    "sg sg"
-    "ct sd"
-    "pd pd";
+    "hd hd hd"
+    "sg sg sg"
+    "ct rs sd"
+    "pd pd pd";
 }
 
 /* fonds de pages */
@@ -115,7 +115,7 @@
   background-color: hsla(0, 1%, 73%, 0.5);
 }
 .beige {
-  background-color: hsl(48, 100%, 93%);
+  background-color: hsl(45, 100%, 80%);
 }
 /* en tete avec images panoramas et nom du Blog */
 .entete {
@@ -308,20 +308,11 @@ li {
   box-shadow: 5px 5px 10px black;
 }
 /* images de la page d'accueil ----------------*/
-
 .image {
   display: grid;
   gap: 1px;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   overflow: scroll;
-}
-.image_mod {
-  width: 100vw;
-  height: 100vh;
-  gap: 0px;
-  grid-template-columns: repeat(100, 1fr);
-  scroll-snap-type: x mandatory;
-  align-items: center;
 }
 .image img {
   width: 100%;
@@ -335,6 +326,15 @@ li {
   object-position: center;
   scroll-snap-align: start;
 }
+.image_mod {
+  width: 100vw;
+  height: 100vh;
+  gap: 0px;
+  grid-template-columns: repeat(100, 1fr);
+  scroll-snap-type: x mandatory;
+  align-items: center;
+}
+/* --------icone pour le fullscreen------ */
 .fullscreen {
   position: absolute;
   display: none;
@@ -357,6 +357,7 @@ li {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
 }
+/* -----------fleches de defilement du scroll horiz---------- */
 .fleches {
   display: none;
   position: absolute;
@@ -375,6 +376,12 @@ li {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
 }
+.fleches:hover {
+  font-weight: bolder;
+  text-shadow: 2px 2px 2px black;
+  opacity: 1;
+  z-index: 10;
+}
 .material-icons-outlined {
   font-size: 4rem;
 }
@@ -389,6 +396,7 @@ li {
   justify-content: flex-end;
   right: 0;
 }
+/* ---panneau interdit pour stopper le defilement horiz---- */
 .prec,
 .suiv {
   display: none;
@@ -397,35 +405,14 @@ li {
   display: block;
 }
 
-.fleches:hover {
-  font-weight: bolder;
-  text-shadow: 2px 2px 2px black;
-  opacity: 1;
-  z-index: 10;
-}
 /* ---------------------------------- */
-/* polsize des textes */
+/* pPosition des textes------*/
 .justscroll {
   text-align: justify;
   background-color: blanchedalmond;
-  overflow: scroll;
+  overflow-y: scroll;
   margin: 0; /* poursupprimer la bande blanche entre blog et central des pages amis et Index */
 }
-.just_mod {
-  position: fixed;
-  height: 100vh;
-  display: flex;
-  top: 0;
-  left: 0;
-  background-color: black;
-}
-.grab {
-  cursor: grab;
-}
-.padbas {
-  margin-bottom: 5px;
-}
-/* decaler les textes des paragraphes /cadre */
 .justscroll p {
   padding: 1vh 3vw;
 }
@@ -435,9 +422,23 @@ li {
   font-weight: bolder;
   font-size: 1.5em;
 }
-.relat {
-  display: grid;
+.just_mod {
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  top: 0;
+  left: 0;
+  background-color: black;
 }
+/* ---------------------------- */
+.grab {
+  cursor: grab;
+}
+.padbas {
+  margin-bottom: 5px;
+}
+/* decaler les textes des paragraphes /cadre */
+/* ------- concentrer les boites en une seule----- */
 .relat > a {
   display: grid;
   text-decoration: none;
@@ -467,7 +468,7 @@ li {
   color: rgb(255, 174, 0);
   text-shadow: 2px 2px 2px black;
 }
-/* pied de page */
+/* ---------pied de page ----------*/
 .pied {
   width: auto;
   grid-area: pd;
@@ -562,17 +563,9 @@ li {
   background-color: hsl(0, 0%, 40%, 0.5);
   cursor: pointer;
 }
-/* fixer le footer de la page amis pour derouler les deux bandeaux ct et sd */
-.envelop {
-  border: 2px solid rgba(252, 212, 54, 0.829);
-}
 /* -------------resizer------------ */
 .resizer {
-  position: absolute;
-  top: 0;
-  right: -10px;
-  width: 20px;
-  height: 100%;
+  position: relative; 
   cursor: ew-resize;
   touch-action: none;
 }
@@ -589,7 +582,7 @@ li {
   transition: 0.3s;
 }
 .resizer:hover::after {
-  transform: scaleX(0.5);
+  transform: scaleX(1);
   opacity: 1;
 }
 
@@ -679,7 +672,5 @@ li {
   .sstitre {
     padding-right: 1rem;
   }
-  /* .image {
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-  } */
+
 }
