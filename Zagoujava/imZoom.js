@@ -9,7 +9,7 @@ const fix_fond = document.querySelector(".sided");
 const boiteImg = document.querySelector(".image");
 const tab = document.querySelectorAll(".image img");
 const stop_prec = document.querySelector(".prec");
-const stop_suiv= document.querySelector(".suiv");
+const stop_suiv = document.querySelector(".suiv");
 /* --------------------------------------------- */
 /* Zoom quand on clicke sur une image en changeant les classes */
 let zoome = false;
@@ -42,11 +42,11 @@ const zoom = (e) => {
     else {
       stop_prec.classList.remove("show");
     }
-    if (boiteImg.scrollLeft === (boiteImg.scrollWidth-boiteImg.offsetWidth)) stop_suiv.classList.add("show");
+    if (boiteImg.scrollLeft === boiteImg.scrollWidth - boiteImg.offsetWidth)
+      stop_suiv.classList.add("show");
     else {
       stop_suiv.classList.remove("show");
     }
-    
   });
 };
 
@@ -72,17 +72,19 @@ const av_ar = () => {
 
 /* ------------------------------------------ */
 const go_fullScreen = (elem) => {
-  let not_fs =
-    !document.fullscreenElement &&
-    !document.mozFullScreen &&
-    !document.webkitIsFullScreen &&
-    !document.msFullscreenElement;
-  if (not_fs) {
-    if (elem.requestFullscreen) elem.requestFullscreen();
-    else if (elem.mozRequestFullScreen) elem.mozRequestFullScreen();
-    else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
-    else if (elem.msRequestFullscreen) elem.msRequestFullscreen();
-  } else stop_fullScreen();
+  if (elem) {
+    let not_fs =
+      !document.fullscreenElement &&
+      !document.mozFullScreen &&
+      !document.webkitIsFullScreen &&
+      !document.msFullscreenElement;
+    if (not_fs) {
+      if (elem.requestFullscreen) elem.requestFullscreen();
+      else if (elem.mozRequestFullScreen) elem.mozRequestFullScreen();
+      else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
+      else if (elem.msRequestFullscreen) elem.msRequestFullscreen();
+    } else stop_fullScreen();
+  }
 };
 
 const stop_fullScreen = () => {
@@ -101,7 +103,7 @@ const stop_fullScreen = () => {
 
 const fulls = () => {
   document.addEventListener("keydown", (e) => {
-    if (e.key === "f") go_fullScreen(fix_fond);
+    if (e.key === "f") go_fullScreen(document.querySelector(".just_mod"));
     e.stopPropagation;
   });
 };
