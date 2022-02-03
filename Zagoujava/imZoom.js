@@ -34,7 +34,7 @@ const zoom = (e) => {
   fix_fond.classList.toggle("just_mod");
   /* pointer sur l'image sur laquelle on a cliqué */
   boiteImg.scrollTo({
-    left: e.target.x,
+    left: e.target.offsetLeft,
   });
   /* rajouter le stop au debut et la la fin des images */
   boiteImg.addEventListener("scroll", () => {
