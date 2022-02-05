@@ -72,11 +72,31 @@ const av_ar = () => {
 };
 
 /* ------------------------------------------ */
-
-const fulls = () => {
+const drGa = (gauche, droite, retour, fs) => {
   document.addEventListener("keydown", (e) => {
-    if (e.key === "f") go_fullScreen(document.querySelector(".just_mod"));
-    e.stopPropagation;
+    if (e.preventDefault()) return;
+    /* image de droite ou image de gauche */
+    switch (e.code) {
+      /* aller à position gauche de l'image- largeur de l'image*/
+      case gauche: {
+        boiteImg.scrollTo({ left: boiteImg.scrollLeft - boiteImg.offsetWidth });
+        break;
+      }
+      case droite: {
+        boiteImg.scrollTo({ left: boiteImg.scrollLeft + boiteImg.offsetWidth });
+        break;
+      }
+      case retour: {
+        zoom(e);
+        break;
+      }
+      /* Toggle Fullscreen */
+      case fs: {
+        go_fullScreen(document.querySelector(".just_mod"));
+        break;
+      }
+    }
+    e.stopPropagation();
   });
 };
 
@@ -88,7 +108,7 @@ tab.forEach((img) => {
   });
 });
 av_ar();
-fulls();
+drGa("ArrowLeft", "ArrowRight", "Enter", "KeyF");
 
 /*  si menu principal smartphones, gerer le menu glissant */
 menuGlissant(".hamb", ".menu", ".lienMenuPrinc li");
