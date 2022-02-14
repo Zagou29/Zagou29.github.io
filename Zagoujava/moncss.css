@@ -674,3 +674,8 @@ li {
   }
 
 }
+@media screen and (max-width: 528px){
+  .image > img{
+    pointer-events: none;
+  }
+}
