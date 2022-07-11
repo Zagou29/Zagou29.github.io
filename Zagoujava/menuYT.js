@@ -1,5 +1,5 @@
 /* -------Ecoute des clicks sur les items de menu et fermeture puis affichage video */
-const fermerAncres = (nav, items,titre) => {
+const fermerAncres = (nav, items, titre) => {
   items.forEach((a) => {
     a.addEventListener("click", () => {
       /* fermer le menu */
@@ -18,9 +18,9 @@ const fermerAncres = (nav, items,titre) => {
 function menuGlissant(bouton, menu, liens) {
   const titreMenu = document.querySelector("#choixMenu");
   const nav = document.querySelector(menu);
-  const ancres = [... document.querySelectorAll(liens)];
+  const ancres = [...document.querySelectorAll(liens)];
   const bout = document.querySelector(bouton);
-  
+
   /* --------gere le preload -----*/
   window.addEventListener("load", () => {
     document.body.classList.remove("preload");
@@ -28,20 +28,21 @@ function menuGlissant(bouton, menu, liens) {
   /* quand le document est lancé, cliquer sur le bouton fait apparaitre le menu */
   document.addEventListener("DOMContentLoaded", () => {
     bout.addEventListener("click", () => {
+      document.querySelector(".videoCadre").style.display = "block";
       nav.classList.add("nav--open");
-      bout.classList.add("actif")
+      bout.classList.add("actif");
     });
-    /* cliquer sur l'overlay ferme le menu */
-    
-    document.querySelector(`${menu} .overlay`).addEventListener("click", () => {
-      nav.classList.remove("nav--open");
-      /* si on a dejà choisi une video, le bouton reste actif, sinon non */
-      if([... document.querySelectorAll(".choisi")].length ===0)
-      {bout.classList.remove("actif")}
-    });
-    /* cliquer sur une ancre ferme le menu  et ouvre la page ou la video*/
-    fermerAncres(nav, ancres, titreMenu);
   });
+  /* cliquer sur l'overlay ferme le menu */
+  document.querySelector(`${menu} .overlay`).addEventListener("click", () => {
+    nav.classList.remove("nav--open");
+    /* si on a dejà choisi une video, le bouton reste actif, sinon non */
+    if ([...document.querySelectorAll(".choisi")].length === 0) {
+      bout.classList.remove("actif");
+    }
+  });
+  /* cliquer sur une ancre ferme le menu  et ouvre la page ou la video*/
+  fermerAncres(nav, ancres, titreMenu);
 }
 
 /* afficher une video Youtube avec le video_id= ID */
