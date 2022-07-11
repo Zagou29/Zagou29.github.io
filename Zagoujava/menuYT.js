@@ -28,7 +28,8 @@ function menuGlissant(bouton, menu, liens) {
   /* quand le document est lancé, cliquer sur le bouton fait apparaitre le menu */
   document.addEventListener("DOMContentLoaded", () => {
     bout.addEventListener("click", () => {
-      document.querySelector(".videoCadre").style.display = "block";
+      if(document.querySelector(".videoCadre"))
+      {document.querySelector(".videoCadre").style.display = "block";}
       nav.classList.add("nav--open");
       bout.classList.add("actif");
     });
