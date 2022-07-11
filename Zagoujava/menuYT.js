@@ -2,7 +2,7 @@
 function menuGlissant(bouton, menu, liens) {
   const titreMenu = document.querySelector("#choixMenu");
   const nav = document.querySelector(menu);
-  const ancres = Array.from(document.querySelectorAll(liens));
+  const ancres = [... document.querySelectorAll(liens)];
   const bout = document.querySelector(bouton);
   let fermerAncres = (menu) => {
     ancres.forEach((a) => {
@@ -34,7 +34,7 @@ function menuGlissant(bouton, menu, liens) {
     document.querySelector(`${menu} .overlay`).addEventListener("click", () => {
       nav.classList.remove("nav--open");
       /* si on a dejà choisi une video, le bouton reste actif, sinon non */
-      if(Array.from(document.querySelectorAll(".choisi")).length ===0)
+      if([... document.querySelectorAll(".choisi")].length ===0)
       {bout.classList.remove("actif")}
     });
     /* cliquer sur une ancre ferme le menu */
