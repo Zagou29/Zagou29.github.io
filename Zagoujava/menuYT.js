@@ -1,24 +1,26 @@
+/* -------Ecoute des clicks sur les items de menu et fermeture puis affichage video */
+const fermerAncres = (nav, items,titre) => {
+  items.forEach((a) => {
+    a.addEventListener("click", () => {
+      /* fermer le menu */
+      nav.classList.remove("nav--open");
+      /* Souligner en jaune la video sur la liste */
+      /* si Dataset existe, afficher sous titre et video et choisi */
+      if (a.dataset.id) {
+        a.classList.add("choisi");
+        titre.innerHTML = a.innerHTML;
+        affVideo(a.dataset.id);
+      }
+    });
+  });
+};
 /* --------fonction pour gerer les menus glissants et afficher les videos si data existe---- */
 function menuGlissant(bouton, menu, liens) {
   const titreMenu = document.querySelector("#choixMenu");
   const nav = document.querySelector(menu);
   const ancres = [... document.querySelectorAll(liens)];
   const bout = document.querySelector(bouton);
-  let fermerAncres = (menu) => {
-    ancres.forEach((a) => {
-      a.addEventListener("click", () => {
-        /* fermer le menu */
-        menu.classList.remove("nav--open");
-        /* Souligner en jaune la video sur la liste */
-        /* si Dataset existe, afficher sous titre et video et choisi */
-        if (a.dataset.id) {
-          a.classList.add("choisi");
-          titreMenu.innerHTML = a.innerHTML;
-          affVideo(a.dataset.id);
-        }
-      });
-    });
-  };
+  
   /* --------gere le preload -----*/
   window.addEventListener("load", () => {
     document.body.classList.remove("preload");
@@ -37,8 +39,8 @@ function menuGlissant(bouton, menu, liens) {
       if([... document.querySelectorAll(".choisi")].length ===0)
       {bout.classList.remove("actif")}
     });
-    /* cliquer sur une ancre ferme le menu */
-    fermerAncres(nav);
+    /* cliquer sur une ancre ferme le menu  et ouvre la page ou la video*/
+    fermerAncres(nav, ancres, titreMenu);
   });
 }
 
