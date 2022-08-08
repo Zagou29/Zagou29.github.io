@@ -9,7 +9,7 @@ const fermerAncres = (nav, items, titre) => {
       if (a.dataset.id) {
         a.classList.add("choisi");
         titre.innerHTML = a.innerHTML;
-        affVideo(a.dataset.id);
+        affVideo(a.dataset.id, a.dataset.ec);
       }
     });
   });
@@ -47,14 +47,24 @@ function menuGlissant(bouton, menu, liens) {
 }
 
 /* afficher une video Youtube avec le video_id= ID */
-function affVideo(id) {
-  document.querySelector(".videoCadre").innerHTML = ` <iframe
+function affVideo(id, ec) {
+  let larg= "larg169";
+  let l= "l169";
+if(ec==="43"){
+  larg="larg43"
+  l="l43"
+}
+  document.querySelector(".central").innerHTML = ` <div class="${larg}">
+  <div class="${l} videoCadre">
+  <iframe
   class="lect"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen=""
   sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation"
   src="https://www.youtube-nocookie.com/embed/${id}?rel=0&amp;modestbranding=1"
-></iframe>`;
+></iframe>
+</div>
+</div>`;
 }
 /* fonction pour afficher une play List YouTube */
 function affPlay(id) {
