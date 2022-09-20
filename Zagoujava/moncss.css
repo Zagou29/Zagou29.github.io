@@ -354,7 +354,7 @@ li {
   text-shadow: 1px 1px 1px black;
   opacity: 1;
 }
-.fullscreen > h1 {
+.fullscreen > h3 {
   font-size: 2rem;
   font-family: "gruppo";
   text-align: center;
