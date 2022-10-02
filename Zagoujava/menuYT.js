@@ -1,3 +1,16 @@
+/* fonction toggle effacer la video ou non */
+const tog_fantom = () => {
+  const bascule = document.querySelector(".bascule");
+  const fantom = document.querySelector(".videoCadre");
+  bascule.addEventListener("click", () => {
+    fantom.style.display = fantom.style.display === "none" ? "block" : "none";
+    if (fantom.style.display === "none") {
+      bascule.classList.add("actif");
+    } else {
+      bascule.classList.remove("actif");
+    }
+  });
+};
 /* -------Ecoute des clicks sur les items de menu et fermeture puis affichage video */
 const fermerAncres = (nav, items, titre) => {
   items.forEach((a) => {
@@ -11,6 +24,7 @@ const fermerAncres = (nav, items, titre) => {
         titre.innerHTML = a.innerHTML;
         affVideo(a.dataset.id, a.dataset.ec);
       }
+      tog_fantom();
     });
   });
 };
@@ -28,8 +42,9 @@ function menuGlissant(bouton, menu, liens) {
   /* quand le document est lancé, cliquer sur le bouton fait apparaitre le menu */
   document.addEventListener("DOMContentLoaded", () => {
     bout.addEventListener("click", () => {
-      if(document.querySelector(".videoCadre"))
-      {document.querySelector(".videoCadre").style.display = "block";}
+      if (document.querySelector(".videoCadre")) {
+        document.querySelector(".videoCadre").style.display = "block";
+      }
       nav.classList.add("nav--open");
       bout.classList.add("actif");
     });
@@ -48,12 +63,12 @@ function menuGlissant(bouton, menu, liens) {
 
 /* afficher une video Youtube avec le video_id= ID */
 function affVideo(id, ec) {
-  let larg= "larg169";
-  let l= "l169";
-if(ec==="43"){
-  larg="larg43"
-  l="l43"
-}
+  let larg = "larg169";
+  let l = "l169";
+  if (ec === "43") {
+    larg = "larg43";
+    l = "l43";
+  }
   document.querySelector(".central").innerHTML = ` <div class="${larg}">
   <div class="${l} videoCadre">
   <iframe
@@ -77,4 +92,4 @@ function affPlay(id) {
   ></iframe>`;
 }
 /* exporter */
-export { menuGlissant };
+export { menuGlissant, tog_fantom };

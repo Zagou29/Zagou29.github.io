@@ -1,17 +1,8 @@
 /* import du menuYT */
-import { menuGlissant } from "./menuYT.js";
+import { menuGlissant, tog_fantom } from "./menuYT.js";
 
 /* bascule Iframe YT vers image de fond */
-const bascule = document.querySelector(".bascule");
-const fantom = document.querySelector(".videoCadre");
-bascule.addEventListener("click", () => {
-  fantom.style.display = fantom.style.display === "none" ? "block" : "none";
-  if (fantom.style.display === "none") {
-    bascule.classList.add("actif");
-  } else {
-    bascule.classList.remove("actif");
-  }
-});
+tog_fantom()
 
 /*  si menu principal smartphones, gerer le menu glissant */
 menuGlissant(".hamb", ".menu", ".lienMenuPrinc li");
