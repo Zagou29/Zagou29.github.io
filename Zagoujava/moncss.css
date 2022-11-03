@@ -23,7 +23,7 @@
 .zeromarge {
   margin: 0;
 }
-.preload * {
+.xpreload * {
   transition: none !important;
 }
 

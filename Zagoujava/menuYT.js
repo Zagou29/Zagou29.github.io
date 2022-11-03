@@ -36,11 +36,11 @@ function menuGlissant(bouton, menu, liens) {
   const bout = document.querySelector(bouton);
 
   /* --------gere le preload -----*/
-  window.addEventListener("load", () => {
-    document.body.classList.remove("preload");
-  });
+  //  window.addEventListener("load", () => {
+  //    document.body.classList.remove("preload");
+  //  });
   /* quand le document est lancé, cliquer sur le bouton fait apparaitre le menu */
-  document.addEventListener("DOMContentLoaded", () => {
+  // document.addEventListener("DOMContentLoaded", () => {
     bout.addEventListener("click", () => {
       if (document.querySelector(".videoCadre")) {
         document.querySelector(".videoCadre").style.display = "block";
@@ -48,7 +48,7 @@ function menuGlissant(bouton, menu, liens) {
       nav.classList.add("nav--open");
       bout.classList.add("actif");
     });
-  });
+  // });
   /* cliquer sur l'overlay ferme le menu */
   document.querySelector(`${menu} .overlay`).addEventListener("click", () => {
     nav.classList.remove("nav--open");
@@ -63,13 +63,13 @@ function menuGlissant(bouton, menu, liens) {
 
 /* afficher une video Youtube avec le video_id= ID */
 function affVideo(id, ec) {
-  let larg = "larg169";
-  let l = "l169";
-  if (ec === "43") {
-    larg = "larg43";
-    l = "l43";
-  }
-  document.querySelector(".central").innerHTML = ` <div class="${larg}">
+  let larg = (ec === "43")?"larg43":"larg169";
+  let l =(ec === "43")? "l43":"l169";
+  
+  document.querySelector(".central").innerHTML="";
+  document.querySelector(".central").insertAdjacentHTML(
+    "beforeend",
+    ` <div class="${larg}">
   <div class="${l} videoCadre">
   <iframe
   class="lect"
@@ -79,17 +79,8 @@ function affVideo(id, ec) {
   src="https://www.youtube-nocookie.com/embed/${id}?rel=0&amp;modestbranding=1"
 ></iframe>
 </div>
-</div>`;
-}
-/* fonction pour afficher une play List YouTube */
-function affPlay(id) {
-  document.querySelector(".videoCadre").innerHTML = ` <iframe
-  class="lect"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen=""
-  sandbox="allow-forms  allow-scripts allow-pointer-lock  allow-same-origin allow-top-navigation"
-  src="https://www.youtube-nocookie.com/embed/videoseries?list=${id}&amp;rel=0&amp;modestbranding=1"
-  ></iframe>`;
+</div>`
+  );
 }
 /* exporter */
 export { menuGlissant, tog_fantom };
