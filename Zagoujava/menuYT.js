@@ -4,11 +4,9 @@ const tog_fantom = () => {
   const fantom = document.querySelector(".videoCadre");
   bascule.addEventListener("click", () => {
     fantom.style.display = fantom.style.display === "none" ? "block" : "none";
-    if (fantom.style.display === "none") {
-      bascule.classList.add("actif");
-    } else {
-      bascule.classList.remove("actif");
-    }
+    fantom.style.display === "none"
+      ? bascule.classList.add("actif")
+      : bascule.classList.remove("actif");
   });
 };
 /* -------Ecoute des clicks sur les items de menu et fermeture puis affichage video */
@@ -41,13 +39,13 @@ function menuGlissant(bouton, menu, liens) {
   //  });
   /* quand le document est lancé, cliquer sur le bouton fait apparaitre le menu */
   // document.addEventListener("DOMContentLoaded", () => {
-    bout.addEventListener("click", () => {
-      if (document.querySelector(".videoCadre")) {
-        document.querySelector(".videoCadre").style.display = "block";
-      }
-      nav.classList.add("nav--open");
-      bout.classList.add("actif");
-    });
+  bout.addEventListener("click", () => {
+    if (document.querySelector(".videoCadre")) {
+      document.querySelector(".videoCadre").style.display = "block";
+    }
+    nav.classList.add("nav--open");
+    bout.classList.add("actif");
+  });
   // });
   /* cliquer sur l'overlay ferme le menu */
   document.querySelector(`${menu} .overlay`).addEventListener("click", () => {
@@ -63,10 +61,10 @@ function menuGlissant(bouton, menu, liens) {
 
 /* afficher une video Youtube avec le video_id= ID */
 function affVideo(id, ec) {
-  let larg = (ec === "43")?"larg43":"larg169";
-  let l =(ec === "43")? "l43":"l169";
-  
-  document.querySelector(".central").innerHTML="";
+  let larg = ec === "43" ? "larg43" : "larg169";
+  let l = ec === "43" ? "l43" : "l169";
+
+  document.querySelector(".central").innerHTML = "";
   document.querySelector(".central").insertAdjacentHTML(
     "beforeend",
     ` <div class="${larg}">

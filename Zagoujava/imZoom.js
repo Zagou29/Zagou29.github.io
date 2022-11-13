@@ -39,15 +39,13 @@ const zoom = (e) => {
   });
   /* rajouter le stop au debut et la la fin des images */
   boiteImg.addEventListener("scroll", () => {
-    if (boiteImg.scrollLeft === 0) stop_prec.classList.add("show");
-    else {
-      stop_prec.classList.remove("show");
-    }
-    if (boiteImg.scrollLeft === boiteImg.scrollWidth - boiteImg.offsetWidth)
-      stop_suiv.classList.add("show");
-    else {
-      stop_suiv.classList.remove("show");
-    }
+    boiteImg.scrollLeft === 0
+      ? stop_prec.classList.add("show")
+      : stop_prec.classList.remove("show");
+
+    boiteImg.scrollLeft === boiteImg.scrollWidth - boiteImg.offsetWidth
+      ? stop_suiv.classList.add("show")
+      : stop_suiv.classList.remove("show");
   });
 };
 
@@ -56,16 +54,15 @@ const zoom = (e) => {
 const av_ar = () => {
   fleches.forEach((el) => {
     el.addEventListener("click", (e) => {
-      if (el === fleches[0]) {
-        /* aller à position gauche de l'image- largeur de l'image*/
-        boiteImg.scrollTo({
-          left: boiteImg.scrollLeft - boiteImg.offsetWidth,
-        });
-      } else {
-        boiteImg.scrollTo({
-          left: boiteImg.scrollLeft + boiteImg.offsetWidth,
-        });
-      }
+      /* aller à position gauche de l'image- largeur de l'image*/
+      el === fleches[0]
+        ? boiteImg.scrollTo({
+            left: boiteImg.scrollLeft - boiteImg.offsetWidth,
+          })
+        : boiteImg.scrollTo({
+            left: boiteImg.scrollLeft + boiteImg.offsetWidth,
+          });
+
       e.stopPropagation();
     });
   });
