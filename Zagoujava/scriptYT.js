@@ -2,9 +2,20 @@
 import { menuGlissant, tog_fantom } from "./menuYT.js";
 
 /* bascule Iframe YT vers image de fond */
-tog_fantom()
+tog_fantom();
 
 /*  si menu principal smartphones, gerer le menu glissant */
-menuGlissant(".hamb", ".menu", ".lienMenuPrinc li");
+const hambP = {
+  bouton: ".hamb",
+  menu: ".menu",
+  liens: ".lienMenuPrinc li",
+};
+menuGlissant(hambP);
 /* menu pour les  videos des playLists*/
-menuGlissant("#hamburger", ".menuGliss", ".liens li");
+const hambV = {
+  bouton: "#hamburger",
+  menu: ".menuGliss",
+  liens: ".liens li",
+};
+
+menuGlissant(hambV);

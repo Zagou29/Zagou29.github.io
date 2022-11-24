@@ -27,11 +27,11 @@ const fermerAncres = (nav, items, titre) => {
   });
 };
 /* --------fonction pour gerer les menus glissants et afficher les videos si data existe---- */
-function menuGlissant(bouton, menu, liens) {
+function menuGlissant(hamburger) {
   const titreMenu = document.querySelector("#choixMenu");
-  const nav = document.querySelector(menu);
-  const ancres = [...document.querySelectorAll(liens)];
-  const bout = document.querySelector(bouton);
+  const nav = document.querySelector(hamburger.menu);
+  const ancres = [...document.querySelectorAll(hamburger.liens)];
+  const bout = document.querySelector(hamburger.bouton);
 
   /* --------gere le preload -----*/
   //  window.addEventListener("load", () => {
@@ -48,7 +48,7 @@ function menuGlissant(bouton, menu, liens) {
   });
   // });
   /* cliquer sur l'overlay ferme le menu */
-  document.querySelector(`${menu} .overlay`).addEventListener("click", () => {
+  document.querySelector(`${hamburger.menu} .overlay`).addEventListener("click", () => {
     nav.classList.remove("nav--open");
     /* si on a dejà choisi une video, le bouton reste actif, sinon non */
     if ([...document.querySelectorAll(".choisi")].length === 0) {
@@ -73,7 +73,7 @@ function affVideo(id, ec) {
   class="lect"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen=""
-  sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation"
+  sandbox="allow-scripts allow-same-origin"
   src="https://www.youtube-nocookie.com/embed/${id}?rel=0&amp;modestbranding=1"
 ></iframe>
 </div>
